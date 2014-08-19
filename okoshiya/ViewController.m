@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "OnseiViewController.h"
+#import "myViewController.h"
 
 @interface ViewController ()
 
 
-- (IBAction)move:(id)sender;
 
 @end
 
@@ -38,6 +39,15 @@
 
 - (IBAction)one:(id)sender {
 }
-- (IBAction)move:(id)sender {
-}
+
+
+
+
+
+
+
+
+
+
+
 @end

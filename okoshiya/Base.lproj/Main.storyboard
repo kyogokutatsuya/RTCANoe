@@ -17,14 +17,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyQ-xe-6qY">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <rect key="frame" x="94" y="267" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="go to my view">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="move:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iBD-Pg-hRt"/>
-                                    <segue destination="bDX-m7-q2M" kind="modal" id="xNE-Pp-WcM"/>
+                                    <segue destination="bDX-m7-q2M" kind="modal" id="RAY-mR-eHJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-fI-BzJ">
+                                <rect key="frame" x="137" y="339" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="record">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LvJ-f8-ob8" kind="modal" id="iLB-fT-Whp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,10 +44,66 @@
             </objects>
             <point key="canvasLocation" x="-566" y="-383"/>
         </scene>
+        <!--Onsei View Controller-->
+        <scene sceneID="DBw-08-GxW">
+            <objects>
+                <viewController storyboardIdentifier="OnseiViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LvJ-f8-ob8" customClass="OnseiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zqF-M4-Lz4"/>
+                        <viewControllerLayoutGuide type="bottom" id="AJp-gk-5RN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cvF-3l-Ha6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vel-53-CDY">
+                                <rect key="frame" x="26" y="367" width="119" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="recordbutton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordClick:" destination="LvJ-f8-ob8" eventType="touchUpInside" id="weU-Xd-NOJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxW-tu-fRS">
+                                <rect key="frame" x="194" y="378" width="106" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="listen.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playClick:" destination="LvJ-f8-ob8" eventType="touchUpInside" id="lZt-GA-1gG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="maiku.png" translatesAutoresizingMaskIntoConstraints="NO" id="ABD-p3-9Og">
+                                <rect key="frame" x="80" y="58" width="155" height="246"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「　」" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be4-yS-VgE">
+                                <rect key="frame" x="65" y="312" width="186" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="be4-yS-VgE" id="wn0-Eh-DnZ"/>
+                        <outlet property="playButton" destination="FxW-tu-fRS" id="xr5-2f-i4A"/>
+                        <outlet property="recordButton" destination="vel-53-CDY" id="Zs5-pC-30X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPJ-4p-XGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-381" y="-993"/>
+        </scene>
         <!--My View Controller-->
         <scene sceneID="vqA-eD-1eg">
             <objects>
-                <viewController id="bDX-m7-q2M" customClass="myViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bDX-m7-q2M" customClass="myViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="va9-Y8-CUW"/>
                         <viewControllerLayoutGuide type="bottom" id="7nH-ZU-cHU"/>
@@ -89,6 +154,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KXe-07-Cu0" id="aKu-SZ-sZm">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -128,6 +194,11 @@
             <point key="canvasLocation" x="451" y="-969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="listen.png" width="51" height="51"/>
+        <image name="maiku.png" width="161" height="283"/>
+        <image name="recordbutton.png" width="64" height="62"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
