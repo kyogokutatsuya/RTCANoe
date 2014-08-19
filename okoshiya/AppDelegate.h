@@ -12,4 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+
+#pragma mark method prototype
+- (void)setIdleTimer:(BOOL)isDisabled;
+
+
 @end

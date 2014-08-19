@@ -10,7 +10,6 @@
 		4219210119A2DEA700429684 /* postViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
 		4219210719A30CF600429684 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210619A30CF600429684 /* SystemConfiguration.framework */; };
 		4219210919A30D0100429684 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210819A30D0100429684 /* Security.framework */; };
-		4219210C19A30F3500429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210B19A30F3500429684 /* Parse.framework */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -40,6 +39,20 @@
 		7EE5A59219A2DED000C10910 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58719A2DED000C10910 /* title.png */; };
 		7EE5A59319A2DED000C10910 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58819A2DED000C10910 /* top.png */; };
 		7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */; };
+		7EE5A59819A32EB500C10910 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A59719A32EB500C10910 /* Parse.framework */; };
+		7EE5A59A19A32FD700C10910 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A59919A32FD700C10910 /* CFNetwork.framework */; };
+		7EE5A59C19A32FE500C10910 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A59B19A32FE500C10910 /* CoreLocation.framework */; };
+		7EE5A59E19A32FFA00C10910 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A59D19A32FFA00C10910 /* libz.dylib */; };
+		7EE5A5A019A3300A00C10910 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A59F19A3300A00C10910 /* MobileCoreServices.framework */; };
+		7EE5A5A219A3301A00C10910 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A5A119A3301A00C10910 /* QuartzCore.framework */; };
+		7EE5A5A419A3302E00C10910 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A5A319A3302E00C10910 /* StoreKit.framework */; };
+		7EE5A5A619A331C400C10910 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A5A519A331C400C10910 /* MediaPlayer.framework */; };
+		7EE5A5A919A33E5F00C10910 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5A819A33E5F00C10910 /* AlarmViewController.m */; };
+		7EE5A5B319A34C6300C10910 /* DCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5AC19A34C6300C10910 /* DCAudioPlayer.m */; };
+		7EE5A5B419A34C6300C10910 /* DCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5AE19A34C6300C10910 /* DCButton.m */; };
+		7EE5A5B519A34C6300C10910 /* DCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5B019A34C6300C10910 /* DCLabel.m */; };
+		7EE5A5B619A34C6300C10910 /* DCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5B219A34C6300C10910 /* DCUtil.m */; };
+		7EE5A5BC19A365CB00C10910 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A5BB19A365CB00C10910 /* alarm.mp3 */; };
 		840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B3B7519A1E18000236DF9 /* VoiceSelect.m */; };
 		8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484D6FC19A1B7D900E210EE /* myViewController.m */; };
 /* End PBXBuildFile section */
@@ -59,7 +72,6 @@
 		4219210019A2DEA700429684 /* postViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postViewController.m; sourceTree = "<group>"; };
 		4219210619A30CF600429684 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4219210819A30D0100429684 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4219210B19A30F3500429684 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Desktop/Parse.framework; sourceTree = "<group>"; };
 		7E54879C199A03D800B7A2FE /* okoshiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okoshiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E54879F199A03D800B7A2FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +108,25 @@
 		7EE5A58819A2DED000C10910 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		7EE5A59419A2ECA300C10910 /* UserResisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResisterViewController.h; sourceTree = "<group>"; };
 		7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResisterViewController.m; sourceTree = "<group>"; };
+		7EE5A59719A32EB500C10910 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7EE5A59919A32FD700C10910 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7EE5A59B19A32FE500C10910 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7EE5A59D19A32FFA00C10910 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7EE5A59F19A3300A00C10910 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7EE5A5A119A3301A00C10910 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7EE5A5A319A3302E00C10910 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7EE5A5A519A331C400C10910 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7EE5A5A719A33E5F00C10910 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		7EE5A5A819A33E5F00C10910 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
+		7EE5A5AB19A34C6300C10910 /* DCAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCAudioPlayer.h; sourceTree = "<group>"; };
+		7EE5A5AC19A34C6300C10910 /* DCAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCAudioPlayer.m; sourceTree = "<group>"; };
+		7EE5A5AD19A34C6300C10910 /* DCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCButton.h; sourceTree = "<group>"; };
+		7EE5A5AE19A34C6300C10910 /* DCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCButton.m; sourceTree = "<group>"; };
+		7EE5A5AF19A34C6300C10910 /* DCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLabel.h; sourceTree = "<group>"; };
+		7EE5A5B019A34C6300C10910 /* DCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCLabel.m; sourceTree = "<group>"; };
+		7EE5A5B119A34C6300C10910 /* DCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCUtil.h; sourceTree = "<group>"; };
+		7EE5A5B219A34C6300C10910 /* DCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCUtil.m; sourceTree = "<group>"; };
+		7EE5A5BB19A365CB00C10910 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		840B3B7419A1E18000236DF9 /* VoiceSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceSelect.h; path = ../VoiceSelect.h; sourceTree = "<group>"; };
 		840B3B7519A1E18000236DF9 /* VoiceSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoiceSelect.m; path = ../VoiceSelect.m; sourceTree = "<group>"; };
 		8484D6FB19A1B7D900E210EE /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myViewController.h; path = ../myViewController.h; sourceTree = "<group>"; };
@@ -107,7 +138,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4219210C19A30F3500429684 /* Parse.framework in Frameworks */,
+				7EE5A5A619A331C400C10910 /* MediaPlayer.framework in Frameworks */,
+				7EE5A5A419A3302E00C10910 /* StoreKit.framework in Frameworks */,
+				7EE5A5A219A3301A00C10910 /* QuartzCore.framework in Frameworks */,
+				7EE5A5A019A3300A00C10910 /* MobileCoreServices.framework in Frameworks */,
+				7EE5A59E19A32FFA00C10910 /* libz.dylib in Frameworks */,
+				7EE5A59C19A32FE500C10910 /* CoreLocation.framework in Frameworks */,
+				7EE5A59A19A32FD700C10910 /* CFNetwork.framework in Frameworks */,
+				7EE5A59819A32EB500C10910 /* Parse.framework in Frameworks */,
 				4219210919A30D0100429684 /* Security.framework in Frameworks */,
 				4219210719A30CF600429684 /* SystemConfiguration.framework in Frameworks */,
 				7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */,
@@ -153,7 +191,14 @@
 		7E54879E199A03D800B7A2FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4219210B19A30F3500429684 /* Parse.framework */,
+				7EE5A5A519A331C400C10910 /* MediaPlayer.framework */,
+				7EE5A5A319A3302E00C10910 /* StoreKit.framework */,
+				7EE5A5A119A3301A00C10910 /* QuartzCore.framework */,
+				7EE5A59F19A3300A00C10910 /* MobileCoreServices.framework */,
+				7EE5A59D19A32FFA00C10910 /* libz.dylib */,
+				7EE5A59B19A32FE500C10910 /* CoreLocation.framework */,
+				7EE5A59919A32FD700C10910 /* CFNetwork.framework */,
+				7EE5A59719A32EB500C10910 /* Parse.framework */,
 				4219210819A30D0100429684 /* Security.framework */,
 				4219210619A30CF600429684 /* SystemConfiguration.framework */,
 				7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */,
@@ -169,6 +214,8 @@
 		7E5487A5199A03D800B7A2FE /* okoshiya */ = {
 			isa = PBXGroup;
 			children = (
+				7EE5A5BA19A365CB00C10910 /* audio */,
+				7EE5A5AA19A34C6300C10910 /* DCLibrary */,
 				7EE5A57D19A2DED000C10910 /* images */,
 				840B3B7419A1E18000236DF9 /* VoiceSelect.h */,
 				840B3B7519A1E18000236DF9 /* VoiceSelect.m */,
@@ -181,12 +228,14 @@
 				7EE5A57119A2235A00C10910 /* OnseiViewController.m */,
 				7E5487B4199A03D800B7A2FE /* ViewController.h */,
 				7E5487B5199A03D800B7A2FE /* ViewController.m */,
+				7EE5A5A719A33E5F00C10910 /* AlarmViewController.h */,
+				7EE5A5A819A33E5F00C10910 /* AlarmViewController.m */,
+				7EE5A59419A2ECA300C10910 /* UserResisterViewController.h */,
+				7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */,
 				421920FF19A2DEA700429684 /* postViewController.h */,
 				4219210019A2DEA700429684 /* postViewController.m */,
 				7E5487B7199A03D800B7A2FE /* Images.xcassets */,
 				7E5487A6199A03D800B7A2FE /* Supporting Files */,
-				7EE5A59419A2ECA300C10910 /* UserResisterViewController.h */,
-				7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */,
 			);
 			path = okoshiya;
 			sourceTree = "<group>";
@@ -236,6 +285,29 @@
 				7EE5A58819A2DED000C10910 /* top.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		7EE5A5AA19A34C6300C10910 /* DCLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				7EE5A5AB19A34C6300C10910 /* DCAudioPlayer.h */,
+				7EE5A5AC19A34C6300C10910 /* DCAudioPlayer.m */,
+				7EE5A5AD19A34C6300C10910 /* DCButton.h */,
+				7EE5A5AE19A34C6300C10910 /* DCButton.m */,
+				7EE5A5AF19A34C6300C10910 /* DCLabel.h */,
+				7EE5A5B019A34C6300C10910 /* DCLabel.m */,
+				7EE5A5B119A34C6300C10910 /* DCUtil.h */,
+				7EE5A5B219A34C6300C10910 /* DCUtil.m */,
+			);
+			path = DCLibrary;
+			sourceTree = "<group>";
+		};
+		7EE5A5BA19A365CB00C10910 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				7EE5A5BB19A365CB00C10910 /* alarm.mp3 */,
+			);
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +400,7 @@
 				7EE5A59119A2DED000C10910 /* recordbuttonon.png in Resources */,
 				7EE5A59319A2DED000C10910 /* top.png in Resources */,
 				7EE5A58F19A2DED000C10910 /* me.png in Resources */,
+				7EE5A5BC19A365CB00C10910 /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +421,14 @@
 			files = (
 				7E5487B6199A03D800B7A2FE /* ViewController.m in Sources */,
 				4219210119A2DEA700429684 /* postViewController.m in Sources */,
+				7EE5A5B319A34C6300C10910 /* DCAudioPlayer.m in Sources */,
+				7EE5A5B619A34C6300C10910 /* DCUtil.m in Sources */,
+				7EE5A5B519A34C6300C10910 /* DCLabel.m in Sources */,
 				7E5487B0199A03D800B7A2FE /* AppDelegate.m in Sources */,
+				7EE5A5A919A33E5F00C10910 /* AlarmViewController.m in Sources */,
 				8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */,
 				7E5487AC199A03D800B7A2FE /* main.m in Sources */,
+				7EE5A5B419A34C6300C10910 /* DCButton.m in Sources */,
 				7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */,
 				840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */,
 				7EE5A57619A2235A00C10910 /* OnseiViewController.m in Sources */,
@@ -488,6 +566,7 @@
 					"$(inherited)",
 					/Users/seryu623/Downloads,
 					/Users/seryu623/Desktop,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";
@@ -509,6 +588,7 @@
 					"$(inherited)",
 					/Users/seryu623/Downloads,
 					/Users/seryu623/Desktop,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";

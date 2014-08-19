@@ -13,7 +13,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *coButton;
 
 
-@property (weak, nonatomic) IBOutlet UIButton *view_id_ok;
+@property (retain, nonatomic) IBOutlet UIButton *view_id_ok;
 
 
 

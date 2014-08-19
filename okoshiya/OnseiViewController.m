@@ -213,6 +213,7 @@ NSData *audioData;
             NSLog(@"Error %@", [error localizedDescription]);
         }
         [self.player prepareToPlay];
+        self.player.volume = 5.0;
         [self.player play];
     }
 }
