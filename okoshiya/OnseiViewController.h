@@ -24,20 +24,20 @@
 
 @interface OnseiViewController : UIViewController
 
-@property (nonatomic)AVAudioRecorder *recorder;
-@property (nonatomic)AVAudioSession *session;
-@property (nonatomic)AVAudioPlayer *player;
+@property (retain,nonatomic)AVAudioRecorder *recorder;
+@property (retain,nonatomic)AVAudioSession *session;
+@property (retain,nonatomic)AVAudioPlayer *player;
 
 //録音確認
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (retain, nonatomic) IBOutlet UILabel *label;
 
 //録音
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+@property (retain, nonatomic) IBOutlet UIButton *recordButton;
 - (IBAction)recordClick:(id)sender;
 
 
 //再生
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (retain, nonatomic) IBOutlet UIButton *playButton;
 - (IBAction)playClick:(id)sender;
 
 

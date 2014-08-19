@@ -7,12 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+
+#define ParseApplicationID @"F92aIWE3lhOTe5xO2ZiazXsTdRVJ6IAGwLr3uYXS"
+#define ParseClientKey     @"rOpagcRL6RHdikb2L1sZi2QYHgf6UVrrAT4Tchuz"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    //parseを初期化する
+    [Parse setApplicationId:ParseApplicationID clientKey:ParseClientKey];
+    //プッシュ通知を有効とする
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeSound];
+    
     return YES;
 }
 							
@@ -41,6 +53,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+//DeviceToken受信メソッド
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    //取得したDeveiceTokenを設定する
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    
+    //保存する
+    [currentInstallation saveInBackground];
 }
 
 @end
