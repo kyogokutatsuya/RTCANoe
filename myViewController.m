@@ -80,24 +80,25 @@ NSInteger settime;
 }
 
 
-//ピッカーに商事する文字を返す
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return time_list[row];
+//ピッカーに表示する文字を返す
+-(NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return time_list[(long)row];
+   // return [NSString stringWithFormat:@"%ld", (long)row];
 }
 
 
 //ピッカーで選択されたときに行う処理
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"選択=%@", time_list[row]);
     
 }
 
 
 
-
-//--------------------------------------------
-//NSDataにデータはいってるのか確認する関数
-//--------------------------------------------
+//
+////--------------------------------------------
+////NSDataにデータはいってるのか確認する関数
+////--------------------------------------------
 -(void) MQDumpNSData:(NSData *)data
 {
     // データ配列のポインタを得る
