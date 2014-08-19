@@ -42,7 +42,12 @@
 }
 //行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 10;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+       return @"GROUP";
+    
 }
 
 //表示するセル
@@ -60,6 +65,11 @@
     cell.textLabel.text = title;
     //文字の色
     cell.textLabel.textColor = [UIColor greenColor];
+    
+    //起きたらme.png寝てたらclose.pngを表示
+    UIImage *image = [UIImage imageNamed:@"close.png" ];
+    cell.imageView.image = image;
+    
     
     //文字サイズ
     cell.textLabel.font = [UIFont systemFontOfSize:20];
