@@ -10,11 +10,11 @@
 
 //id認証とか
 @interface UserResisterViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *userid;
+@property (retain, nonatomic) IBOutlet UITextField *userid;
 
 
 - (IBAction)postidbutton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *postidbutton_p;
+@property (retain, nonatomic) IBOutlet UIButton *postidbutton_p;
 - (IBAction)check_vali:(id)sender;
 
 @end
