@@ -13,7 +13,7 @@
 }
 
 - (IBAction)voice:(id)sender;
-@property (weak, nonatomic) IBOutlet UIPickerView *myPicker;
+@property (retain, nonatomic) IBOutlet UIPickerView *myPicker;
 @end
 
 @implementation myViewController

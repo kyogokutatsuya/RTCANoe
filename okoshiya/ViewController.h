@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *coButton;
+@property (retain, nonatomic) IBOutlet UIButton *coButton;
 
 
 - (IBAction)co:(id)sender;
