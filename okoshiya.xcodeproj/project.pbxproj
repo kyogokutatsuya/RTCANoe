@@ -25,11 +25,21 @@
 		7E5487C1199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
 		7E5487C9199A03D800B7A2FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E5487C7199A03D800B7A2FE /* InfoPlist.strings */; };
 		7E5487CB199A03D800B7A2FE /* okoshiyaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */; };
-		7EE5A57419A2235A00C10910 /* listen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A56E19A2235A00C10910 /* listen.png */; };
-		7EE5A57519A2235A00C10910 /* maiku.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A56F19A2235A00C10910 /* maiku.png */; };
 		7EE5A57619A2235A00C10910 /* OnseiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A57119A2235A00C10910 /* OnseiViewController.m */; };
-		7EE5A57719A2235A00C10910 /* recordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A57219A2235A00C10910 /* recordbutton.png */; };
-		7EE5A57819A2235A00C10910 /* recordbuttonon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A57319A2235A00C10910 /* recordbuttonon.png */; };
+		7EE5A57A19A2DEA600C10910 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57919A2DEA600C10910 /* AVFoundation.framework */; };
+		7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */; };
+		7EE5A58919A2DED000C10910 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A57E19A2DED000C10910 /* close.png */; };
+		7EE5A58A19A2DED000C10910 /* hukidashi.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A57F19A2DED000C10910 /* hukidashi.png */; };
+		7EE5A58B19A2DED000C10910 /* hukidashi1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58019A2DED000C10910 /* hukidashi1.png */; };
+		7EE5A58C19A2DED000C10910 /* human.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58119A2DED000C10910 /* human.png */; };
+		7EE5A58D19A2DED000C10910 /* listen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58219A2DED000C10910 /* listen.png */; };
+		7EE5A58E19A2DED000C10910 /* maiku.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58319A2DED000C10910 /* maiku.png */; };
+		7EE5A58F19A2DED000C10910 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58419A2DED000C10910 /* me.png */; };
+		7EE5A59019A2DED000C10910 /* recordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58519A2DED000C10910 /* recordbutton.png */; };
+		7EE5A59119A2DED000C10910 /* recordbuttonon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58619A2DED000C10910 /* recordbuttonon.png */; };
+		7EE5A59219A2DED000C10910 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58719A2DED000C10910 /* title.png */; };
+		7EE5A59319A2DED000C10910 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A58819A2DED000C10910 /* top.png */; };
+		7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */; };
 		840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B3B7519A1E18000236DF9 /* VoiceSelect.m */; };
 		8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484D6FC19A1B7D900E210EE /* myViewController.m */; };
 /* End PBXBuildFile section */
@@ -69,12 +79,23 @@
 		7E5487C6199A03D800B7A2FE /* okoshiyaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "okoshiyaTests-Info.plist"; sourceTree = "<group>"; };
 		7E5487C8199A03D800B7A2FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = okoshiyaTests.m; sourceTree = "<group>"; };
-		7EE5A56E19A2235A00C10910 /* listen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listen.png; sourceTree = "<group>"; };
-		7EE5A56F19A2235A00C10910 /* maiku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maiku.png; sourceTree = "<group>"; };
 		7EE5A57019A2235A00C10910 /* OnseiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnseiViewController.h; sourceTree = "<group>"; };
 		7EE5A57119A2235A00C10910 /* OnseiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnseiViewController.m; sourceTree = "<group>"; };
-		7EE5A57219A2235A00C10910 /* recordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbutton.png; sourceTree = "<group>"; };
-		7EE5A57319A2235A00C10910 /* recordbuttonon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbuttonon.png; sourceTree = "<group>"; };
+		7EE5A57919A2DEA600C10910 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7EE5A57E19A2DED000C10910 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		7EE5A57F19A2DED000C10910 /* hukidashi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hukidashi.png; sourceTree = "<group>"; };
+		7EE5A58019A2DED000C10910 /* hukidashi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hukidashi1.png; sourceTree = "<group>"; };
+		7EE5A58119A2DED000C10910 /* human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human.png; sourceTree = "<group>"; };
+		7EE5A58219A2DED000C10910 /* listen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listen.png; sourceTree = "<group>"; };
+		7EE5A58319A2DED000C10910 /* maiku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maiku.png; sourceTree = "<group>"; };
+		7EE5A58419A2DED000C10910 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		7EE5A58519A2DED000C10910 /* recordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbutton.png; sourceTree = "<group>"; };
+		7EE5A58619A2DED000C10910 /* recordbuttonon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbuttonon.png; sourceTree = "<group>"; };
+		7EE5A58719A2DED000C10910 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		7EE5A58819A2DED000C10910 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		7EE5A59419A2ECA300C10910 /* UserResisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResisterViewController.h; sourceTree = "<group>"; };
+		7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResisterViewController.m; sourceTree = "<group>"; };
 		840B3B7419A1E18000236DF9 /* VoiceSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceSelect.h; path = ../VoiceSelect.h; sourceTree = "<group>"; };
 		840B3B7519A1E18000236DF9 /* VoiceSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoiceSelect.m; path = ../VoiceSelect.m; sourceTree = "<group>"; };
 		8484D6FB19A1B7D900E210EE /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myViewController.h; path = ../myViewController.h; sourceTree = "<group>"; };
@@ -89,6 +110,8 @@
 				4219210C19A30F3500429684 /* Parse.framework in Frameworks */,
 				4219210919A30D0100429684 /* Security.framework in Frameworks */,
 				4219210719A30CF600429684 /* SystemConfiguration.framework in Frameworks */,
+				7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */,
+				7EE5A57A19A2DEA600C10910 /* AVFoundation.framework in Frameworks */,
 				7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */,
 				7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */,
 				7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */,
@@ -133,6 +156,8 @@
 				4219210B19A30F3500429684 /* Parse.framework */,
 				4219210819A30D0100429684 /* Security.framework */,
 				4219210619A30CF600429684 /* SystemConfiguration.framework */,
+				7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */,
+				7EE5A57919A2DEA600C10910 /* AVFoundation.framework */,
 				7E54879F199A03D800B7A2FE /* Foundation.framework */,
 				7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */,
 				7E5487A3199A03D800B7A2FE /* UIKit.framework */,
@@ -144,6 +169,7 @@
 		7E5487A5199A03D800B7A2FE /* okoshiya */ = {
 			isa = PBXGroup;
 			children = (
+				7EE5A57D19A2DED000C10910 /* images */,
 				840B3B7419A1E18000236DF9 /* VoiceSelect.h */,
 				840B3B7519A1E18000236DF9 /* VoiceSelect.m */,
 				8484D6FB19A1B7D900E210EE /* myViewController.h */,
@@ -151,18 +177,16 @@
 				7E5487AE199A03D800B7A2FE /* AppDelegate.h */,
 				7E5487AF199A03D800B7A2FE /* AppDelegate.m */,
 				7E5487B1199A03D800B7A2FE /* Main.storyboard */,
-				7EE5A56E19A2235A00C10910 /* listen.png */,
-				7EE5A56F19A2235A00C10910 /* maiku.png */,
 				7EE5A57019A2235A00C10910 /* OnseiViewController.h */,
 				7EE5A57119A2235A00C10910 /* OnseiViewController.m */,
-				7EE5A57219A2235A00C10910 /* recordbutton.png */,
-				7EE5A57319A2235A00C10910 /* recordbuttonon.png */,
 				7E5487B4199A03D800B7A2FE /* ViewController.h */,
 				7E5487B5199A03D800B7A2FE /* ViewController.m */,
 				421920FF19A2DEA700429684 /* postViewController.h */,
 				4219210019A2DEA700429684 /* postViewController.m */,
 				7E5487B7199A03D800B7A2FE /* Images.xcassets */,
 				7E5487A6199A03D800B7A2FE /* Supporting Files */,
+				7EE5A59419A2ECA300C10910 /* UserResisterViewController.h */,
+				7EE5A59519A2ECA300C10910 /* UserResisterViewController.m */,
 			);
 			path = okoshiya;
 			sourceTree = "<group>";
@@ -194,6 +218,24 @@
 				7E5487C7199A03D800B7A2FE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EE5A57D19A2DED000C10910 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7EE5A57E19A2DED000C10910 /* close.png */,
+				7EE5A57F19A2DED000C10910 /* hukidashi.png */,
+				7EE5A58019A2DED000C10910 /* hukidashi1.png */,
+				7EE5A58119A2DED000C10910 /* human.png */,
+				7EE5A58219A2DED000C10910 /* listen.png */,
+				7EE5A58319A2DED000C10910 /* maiku.png */,
+				7EE5A58419A2DED000C10910 /* me.png */,
+				7EE5A58519A2DED000C10910 /* recordbutton.png */,
+				7EE5A58619A2DED000C10910 /* recordbuttonon.png */,
+				7EE5A58719A2DED000C10910 /* title.png */,
+				7EE5A58819A2DED000C10910 /* top.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,13 +314,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE5A57719A2235A00C10910 /* recordbutton.png in Resources */,
-				7EE5A57519A2235A00C10910 /* maiku.png in Resources */,
-				7EE5A57419A2235A00C10910 /* listen.png in Resources */,
+				7EE5A58D19A2DED000C10910 /* listen.png in Resources */,
+				7EE5A59219A2DED000C10910 /* title.png in Resources */,
+				7EE5A58C19A2DED000C10910 /* human.png in Resources */,
+				7EE5A58919A2DED000C10910 /* close.png in Resources */,
+				7EE5A58A19A2DED000C10910 /* hukidashi.png in Resources */,
+				7EE5A59019A2DED000C10910 /* recordbutton.png in Resources */,
+				7EE5A58E19A2DED000C10910 /* maiku.png in Resources */,
 				7E5487B8199A03D800B7A2FE /* Images.xcassets in Resources */,
+				7EE5A58B19A2DED000C10910 /* hukidashi1.png in Resources */,
 				7E5487AA199A03D800B7A2FE /* InfoPlist.strings in Resources */,
 				7E5487B3199A03D800B7A2FE /* Main.storyboard in Resources */,
-				7EE5A57819A2235A00C10910 /* recordbuttonon.png in Resources */,
+				7EE5A59119A2DED000C10910 /* recordbuttonon.png in Resources */,
+				7EE5A59319A2DED000C10910 /* top.png in Resources */,
+				7EE5A58F19A2DED000C10910 /* me.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +351,7 @@
 				7E5487B0199A03D800B7A2FE /* AppDelegate.m in Sources */,
 				8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */,
 				7E5487AC199A03D800B7A2FE /* main.m in Sources */,
+				7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */,
 				840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */,
 				7EE5A57619A2235A00C10910 /* OnseiViewController.m in Sources */,
 			);

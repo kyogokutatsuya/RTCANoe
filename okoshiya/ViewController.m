@@ -23,6 +23,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
+    
+    //最初みんなで起きるモードに行けないようにする用
+    //self.view_id_ok.enabled = NO;
 }
 
 
@@ -33,20 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)co:(id)sender {
-    NSLog(@"aa");
-}
 
-- (IBAction)one:(id)sender {
-}
-
-
-
-
-
-
-
-
+//あとでid登録おさんかったらみんなで起きるモードに行けないようにする
 
 
 

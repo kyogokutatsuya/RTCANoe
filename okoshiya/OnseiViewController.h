@@ -40,5 +40,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *playButton;
 - (IBAction)playClick:(id)sender;
 
+//nextbutton
+-(IBAction)onseitomy:(id)sender;
 
 @end
