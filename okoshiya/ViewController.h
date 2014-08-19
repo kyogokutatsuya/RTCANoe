@@ -13,9 +13,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *coButton;
 
 
-- (IBAction)co:(id)sender;
-- (IBAction)one:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIButton *view_id_ok;
 
 
 

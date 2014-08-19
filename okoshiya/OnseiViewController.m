@@ -7,13 +7,14 @@
 //
 
 #import "OnseiViewController.h"
+#import "myViewController.h"
 
 @interface OnseiViewController ()
 
 @end
 
 @implementation OnseiViewController
-
+NSData *audioData;
 @synthesize session;
 @synthesize recorder;
 @synthesize player;
@@ -55,6 +56,10 @@
     return settings;
 }
 
+
+//--------------------------------------------
+//録音のための準備
+//--------------------------------------------
 -(void)recordFile
 {
     // Prepare recording(Audio session)
@@ -84,9 +89,6 @@
     NSURL *url = [NSURL fileURLWithPath:filePath];
     
     
-    
-    
-    
     // recorder = [[AVAudioRecorder alloc] initWithURL:url settings:nil error:&error];
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:[self setAudioRecorder] error:&error];
     
@@ -99,12 +101,11 @@
     
     [recorder updateMeters];
     [recorder peakPowerForChannel:0];
-    [recorder recordForDuration: 5.0];
+    [recorder recordForDuration: 5.0];//５秒で録音とめる
     [recorder record];
     
     
-    
-    NSData *audioData;
+    //cafをNSDataに変換（たぶん）
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL success = [fileManager fileExistsAtPath:filePath];
     if(success) {
@@ -117,7 +118,23 @@
 }
 
 
+//--------------------------------------------
+//次のストーリーボードに値を保持しつつ渡すための準備
+//--------------------------------------------
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"OnseitoMyview"] ) {
+        myViewController *myviewcontroller = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        myviewcontroller.recordvoice = audioData;
+    }
+}
+
+
+//--------------------------------------------
 //NSDataにデータはいってるのか確認する関数
+//--------------------------------------------
 -(void) MQDumpNSData:(NSData *)data
 {
     // データ配列のポインタを得る
@@ -135,6 +152,10 @@
     NSLog(@"%s", s); //=> 人間が分かる形で出力される
 }
 
+
+//--------------------------------------------
+//録音してるか再生してるか何もしてないかのチェック部分
+//--------------------------------------------
 
 - (void)checkrecording:(NSTimer *)timer
 {
@@ -156,6 +177,9 @@
 }
 
 
+//--------------------------------------------
+//録音を止める部分
+//--------------------------------------------
 -(void)stopRecord
 {
     if ( self.recorder != nil && self.recorder.isRecording )
@@ -165,6 +189,11 @@
     }
 }
 
+
+
+//--------------------------------------------
+//再生部分の実装
+//--------------------------------------------
 -(void)playRecord
 {
     NSError *error = nil;
@@ -188,7 +217,10 @@
     }
 }
 
-//録音
+
+//--------------------------------------------
+//クリックされたら録音
+//--------------------------------------------
 - (IBAction)recordClick:(id)sender
 {
     if ( self.recorder != nil && self.recorder.isRecording )
@@ -203,10 +235,20 @@
     }
 }
 
-//再生
+//--------------------------------------------
+//クリックされたら再生
+//--------------------------------------------
 - (IBAction)playClick:(id)sender
 {
     [self playRecord];
+}
+
+
+//--------------------------------------------
+//myviewcontrollerへ
+//--------------------------------------------
+- (IBAction)onseitomy:(id)sender {
+    [self performSegueWithIdentifier:@"OnseitoMyview" sender:self];
 }
 
 @end
