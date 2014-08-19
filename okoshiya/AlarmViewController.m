@@ -43,6 +43,7 @@ typedef enum alarmEventType : NSUInteger {
 
 - (void)viewDidLoad
 {
+    NSString *stringforlabel;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -54,10 +55,16 @@ typedef enum alarmEventType : NSUInteger {
     
     //アラーム開始ボタン配置
    // [self setAlarmControlButton:ALARM_START];
-    self.alarmsettime = 700;
+    //self.alarmsettime = 700;
+    
+    
+    stringforlabel = [[NSString alloc] initWithFormat:@"%d",self.alarmsettime];
+    [self convertsetTime];
+    [self updateWakeUpTimeLabel:stringforlabel];
     
     //アラームスタート
     [self startAlarmTimer];
+    _isStartedAlarm = ALARM_START;
 }
 
 - (void)didReceiveMemoryWarning
@@ -344,6 +351,10 @@ typedef enum alarmEventType : NSUInteger {
             self.setHour = 8;
             self.setMinute = 0;
             break;
+        case 1010:
+            self.setHour = 1;
+            self.setMinute = 10;
+            break;
         default:
             break;
     }
@@ -372,8 +383,20 @@ typedef enum alarmEventType : NSUInteger {
 //現在時刻であるか
 - (BOOL)isCurrentTime
 {
-    return ([self currentHour] == [self setHour] &&
-            [self currentMinute] == [self setMinute]);
+
+    NSInteger ct;
+    NSInteger ch;
+    ch = [self currentHour];
+    ct = [self currentMinute];
+    NSLog(@"set-H: %ld    set-M: %ld", (long)self.setHour, (long)self.setMinute);
+    NSLog(@"current-H: %ld    current-M: %ld", (long)ch, (long)ct);
+    
+    BOOL a = [self currentHour] == [self setHour] && [self currentMinute] == [self setMinute];
+    if(a==NO) NSLog(@"NO");
+    else if(a==YES) NSLog(@"YES");
+    
+    return ([self currentHour] == [self setHour] && [self currentMinute] == [self setMinute]);
+    
 }
 
 //現在の日付を取得
@@ -387,6 +410,7 @@ typedef enum alarmEventType : NSUInteger {
 - (NSInteger)currentHour
 {
     NSDateComponents *currentTimeComponents = [self currentDateComponents];
+   // NSLog(@"current-hour: %ld",currentTimeComponents.hour);
     return currentTimeComponents.hour;
 }
 
@@ -394,6 +418,7 @@ typedef enum alarmEventType : NSUInteger {
 - (NSInteger)currentMinute
 {
     NSDateComponents *currentTimeComponents = [self currentDateComponents];
+   // NSLog(@"current-minute: %ld",currentTimeComponents.minute);
     return currentTimeComponents.minute;
 }
 
@@ -409,6 +434,11 @@ typedef enum alarmEventType : NSUInteger {
                                                               NSMinuteCalendarUnit |
                                                               NSSecondCalendarUnit)
                                                     fromDate:nowDate];
+    
+   // NSLog(@"now-min%ld",nowComponents.minute);
+    
+   // NSLog(@"now-hour%ld",nowComponents.hour);
+    
     return nowComponents;
 }
 
