@@ -41,7 +41,9 @@ NSInteger settime;
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
     
-    settime = 730;
+    settime = 1010;
+    NSLog(@"%ld",(long)settime);
+    
     //debug用
     //[self MQDumpNSData:recordvoice];//onseiviewcontrollerからrecordvoiceが届いてるか確認のため
     
