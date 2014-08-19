@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4219210119A2DEA700429684 /* postViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421920FF19A2DEA700429684 /* postViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = postViewController.h; sourceTree = "<group>"; };
+		4219210019A2DEA700429684 /* postViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postViewController.m; sourceTree = "<group>"; };
 		7E54879C199A03D800B7A2FE /* okoshiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okoshiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E54879F199A03D800B7A2FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,8 @@
 				7EE5A57319A2235A00C10910 /* recordbuttonon.png */,
 				7E5487B4199A03D800B7A2FE /* ViewController.h */,
 				7E5487B5199A03D800B7A2FE /* ViewController.m */,
+				421920FF19A2DEA700429684 /* postViewController.h */,
+				4219210019A2DEA700429684 /* postViewController.m */,
 				7E5487B7199A03D800B7A2FE /* Images.xcassets */,
 				7E5487A6199A03D800B7A2FE /* Supporting Files */,
 			);
@@ -281,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5487B6199A03D800B7A2FE /* ViewController.m in Sources */,
+				4219210119A2DEA700429684 /* postViewController.m in Sources */,
 				7E5487B0199A03D800B7A2FE /* AppDelegate.m in Sources */,
 				8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */,
 				7E5487AC199A03D800B7A2FE /* main.m in Sources */,
@@ -414,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: daisuke sato (9MF8K8KAXA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";
@@ -429,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: daisuke sato (9MF8K8KAXA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";
