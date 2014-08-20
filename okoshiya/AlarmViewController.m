@@ -7,6 +7,7 @@
 //
 
 #import "AlarmViewController.h"
+#import "VoiceSelect.h"
 
 
 @interface AlarmViewController ()
@@ -50,15 +51,15 @@ typedef enum alarmEventType : NSUInteger {
     //アラームプレイヤー初期化
     [self initAlarmPlayer];
     
-//    //起床時間の表示ビュー配置
-//    [self setWakeUpTimeView];
+    //    //起床時間の表示ビュー配置
+    //    [self setWakeUpTimeView];
     
     //アラーム開始ボタン配置
-   // [self setAlarmControlButton:ALARM_START];
+    // [self setAlarmControlButton:ALARM_START];
     //self.alarmsettime = 700;
     
     
-    stringforlabel = [[NSString alloc] initWithFormat:@"%d",self.alarmsettime];
+    stringforlabel = [[NSString alloc] initWithFormat:@"%ld",(long)self.alarmsettime];
     [self convertsetTime];
     [self updateWakeUpTimeLabel:stringforlabel];
     
@@ -74,22 +75,22 @@ typedef enum alarmEventType : NSUInteger {
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark alarm player
 
 //アラームプレイヤー初期化
 - (void)initAlarmPlayer
 {
-   _alarmPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+    _alarmPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
 }
 
 #pragma mark wake up time label
@@ -99,14 +100,14 @@ typedef enum alarmEventType : NSUInteger {
 //{
 //    UIView *wakeUpTimeView = [[UIView alloc] initWithFrame:WAKE_UP_TIME_RECT];
 //    wakeUpTimeView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
-//    
+//
 //    //起床時間のラベル配置
 //    _wakeUpTimeLabel = [DCLabel planeLabel:WAKE_UP_TIME_RECT
 //                                      text:wakeUpTime font:WAKE_UP_TIME_LABEL_FONT
 //                                 textColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter
 //                           backgroundColor:[UIColor clearColor]];
 //    [wakeUpTimeView addSubview:_wakeUpTimeLabel];
-//    
+//
 //    [self.view addSubview:wakeUpTimeView];
 //}
 
@@ -130,7 +131,7 @@ typedef enum alarmEventType : NSUInteger {
 //                                                    text:_isStartedAlarm ? @"停止" : @"開始"
 //                                                delegate:self action:@selector(alarmControlButtonTapEvent:)
 //                                                     tag:_isStartedAlarm ? ALARM_STOP : ALARM_START];
-//    
+//
 //    //ボタンを保持しビューに追加
 //    if (tag == ALARM_START) {
 //        _startAlarmButton = alarmControlButton;
@@ -145,7 +146,7 @@ typedef enum alarmEventType : NSUInteger {
 //- (void)alarmControlButtonTapEvent:(UIButton *)button
 //{
 //    NSUInteger tag = button.tag;
-//    
+//
 //    if (tag == ALARM_START) {
 //        //現在時刻と設定時刻が同じならアラートを表示し処理しない
 //        if ([self isCurrentTime]) {
@@ -153,18 +154,18 @@ typedef enum alarmEventType : NSUInteger {
 //            cancelButtonTitle:nil otherButtonTitles:@"OK"];
 //            return;
 //        }
-//        
+//
 //        //アラームタイマー開始
 //        [self startAlarmTimer];
 //    } else if (tag == ALARM_STOP) {
 //        //アラームタイマー停止
 //        [self clearAlarmTimer];
-//        
+//
 //        //アラーム停止
 //        [self stopAlarm];
 //    }
 //    _isStartedAlarm = tag == ALARM_START;
-//    
+//
 //    //アラームコントロールボタン再配置
 //    [self resetAlarmControlButton];
 //}
@@ -265,24 +266,24 @@ typedef enum alarmEventType : NSUInteger {
 //    //起床時間の選択ピッカーを入れるビュー追加
 //    UIView *wakeUpTimePickerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height- ALARM_PICKER_HEIGHT, ALARM_PICKER_WIDTH, ALARM_PICKER_HEIGHT)];
 //    [self.view addSubview:wakeUpTimePickerView];
-//    
+//
 //    //起床時間の選択ピッカー初期化
 //    _alarmPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, ALARM_PICKER_WIDTH, ALARM_PICKER_HEIGHT)];
-//    
+//
 //    //日付の表示モードを変更する(時分を表示)
 //    _alarmPicker.datePickerMode = UIDatePickerModeTime;
-//    
+//
 //    //何分刻みにするか
 //    _alarmPicker.minuteInterval = ALARM_PICKER_MINUTE_INTERVAL;
-//    
+//
 //    //初期時刻設定
 //    [_alarmPicker setDate:[self wakeUpDate]];
-//    
+//
 //    //起床時間の選択ピッカーの値が変更されたときに呼ばれるメソッドを設定
 //    [_alarmPicker addTarget:self
 //                     action:@selector(alarmPickerChanged:)
 //           forControlEvents:UIControlEventValueChanged];
-//    
+//
 //    //UIDatePickerのインスタンスをビューに追加
 //    [wakeUpTimePickerView addSubview:_alarmPicker];
 //}
@@ -292,16 +293,16 @@ typedef enum alarmEventType : NSUInteger {
 //{
 //    //アラーム開始フラグを下ろす
 //    _isStartedAlarm = NO;
-//    
+//
 //    //起床時間更新
 //    [self updateWakeUpTimeLabel:[self wakeUpTimeText]];
-//    
+//
 //    //アラームが鳴っていたらアラーム停止
 //    [self stopAlarm];
-//    
+//
 //    //タイマー停止
 //    [self clearAlarmTimer];
-//    
+//
 //    //停止ボタンを開始ボタンへ変更
 //    [self resetAlarmControlButton];
 //}
@@ -330,36 +331,40 @@ typedef enum alarmEventType : NSUInteger {
 
 -(void)convertsetTime{
     
-    switch (self.alarmsettime) {
-        case 600:
-            self.setHour = 6;
-            self.setMinute = 0;
-            break;
-        case 630:
-            self.setHour = 6;
-            self.setMinute = 30;
-            break;
-        case 700:
-            self.setHour = 7;
-            self.setMinute = 0;
-            break;
-        case 730:
-            self.setHour = 7;
-            self.setMinute = 30;
-            break;
-        case 800:
-            self.setHour = 8;
-            self.setMinute = 0;
-            break;
-        case 1010:
-            self.setHour = 1;
-            self.setMinute = 10;
-            break;
-        default:
-            break;
+    // 文字列の末尾から2文字を取り出す
+    NSString *substr1 = [self.alarmsettime substringToIndex:1];
+    NSLog(@"h:%@",substr1);
+    const char *H = [substr1 UTF8String];
+    // 指定した範囲の文字列を取り出す
+    NSString *substr2 = [self.alarmsettime substringFromIndex:2];
+    const char *T = [substr2 UTF8String];
+    NSLog(@"t:%@",substr2);
+    self.setHour = 0;
+    self.setMinute = 0;
+    
+    if(strcmp(H,"6") && strcmp(T,"00")){
+        self.setHour = 6;
+        self.setMinute = 0;
+    }
+    else if(strcmp(H,"6") && strcmp(T,"30")){
+        self.setHour = 6;
+        self.setMinute = 30;
+    }
+    else if(strcmp(H,"7") && strcmp(T,"00")){
+        self.setHour = 7;
+        self.setMinute = 0;
+    }
+    else if(strcmp(H,"7") && strcmp(T,"30")){
+        self.setHour = 7;
+        self.setMinute = 30;
+    }
+    else if(strcmp(H,"8") && strcmp(T,"00")){
+        self.setHour = 8;
+        self.setMinute = 0;
     }
     
 }
+
 ////UIDatePickerで指定されている時刻(時)取得
 //- (NSInteger)wakeUpDatePickerHour
 //{
@@ -383,7 +388,7 @@ typedef enum alarmEventType : NSUInteger {
 //現在時刻であるか
 - (BOOL)isCurrentTime
 {
-
+    
     NSInteger ct;
     NSInteger ch;
     ch = [self currentHour];
@@ -410,7 +415,7 @@ typedef enum alarmEventType : NSUInteger {
 - (NSInteger)currentHour
 {
     NSDateComponents *currentTimeComponents = [self currentDateComponents];
-   // NSLog(@"current-hour: %ld",currentTimeComponents.hour);
+    // NSLog(@"current-hour: %ld",currentTimeComponents.hour);
     return currentTimeComponents.hour;
 }
 
@@ -418,7 +423,7 @@ typedef enum alarmEventType : NSUInteger {
 - (NSInteger)currentMinute
 {
     NSDateComponents *currentTimeComponents = [self currentDateComponents];
-   // NSLog(@"current-minute: %ld",currentTimeComponents.minute);
+    // NSLog(@"current-minute: %ld",currentTimeComponents.minute);
     return currentTimeComponents.minute;
 }
 
@@ -435,13 +440,27 @@ typedef enum alarmEventType : NSUInteger {
                                                               NSSecondCalendarUnit)
                                                     fromDate:nowDate];
     
-   // NSLog(@"now-min%ld",nowComponents.minute);
+    // NSLog(@"now-min%ld",nowComponents.minute);
     
-   // NSLog(@"now-hour%ld",nowComponents.hour);
+    // NSLog(@"now-hour%ld",nowComponents.hour);
     
     return nowComponents;
 }
 
+
+//--------------------------------------------
+//次のストーリーボードに値を保持しつつ渡すための準備
+//--------------------------------------------
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"alarmtovoine"] ) {
+        VoiceSelect *voiceselectcontroller = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        // voiceselectcontroller.recordvoice = audioData;
+    }
+    
+}
 
 - (void)dealloc {
     [_timelabel release];
