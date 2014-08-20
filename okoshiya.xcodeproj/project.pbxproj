@@ -10,7 +10,7 @@
 		4219210119A2DEA700429684 /* postViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
 		4219210719A30CF600429684 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210619A30CF600429684 /* SystemConfiguration.framework */; };
 		4219210919A30D0100429684 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210819A30D0100429684 /* Security.framework */; };
-		4219210C19A30F3500429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210B19A30F3500429684 /* Parse.framework */; };
+		4219211F19A4324400429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219211E19A4324400429684 /* Parse.framework */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -59,7 +59,7 @@
 		4219210019A2DEA700429684 /* postViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postViewController.m; sourceTree = "<group>"; };
 		4219210619A30CF600429684 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4219210819A30D0100429684 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4219210B19A30F3500429684 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Desktop/Parse.framework; sourceTree = "<group>"; };
+		4219211E19A4324400429684 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7E54879C199A03D800B7A2FE /* okoshiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okoshiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E54879F199A03D800B7A2FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4219210C19A30F3500429684 /* Parse.framework in Frameworks */,
+				4219211F19A4324400429684 /* Parse.framework in Frameworks */,
 				4219210919A30D0100429684 /* Security.framework in Frameworks */,
 				4219210719A30CF600429684 /* SystemConfiguration.framework in Frameworks */,
 				7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */,
@@ -153,7 +153,7 @@
 		7E54879E199A03D800B7A2FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4219210B19A30F3500429684 /* Parse.framework */,
+				4219211E19A4324400429684 /* Parse.framework */,
 				4219210819A30D0100429684 /* Security.framework */,
 				4219210619A30CF600429684 /* SystemConfiguration.framework */,
 				7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */,
@@ -488,6 +488,7 @@
 					"$(inherited)",
 					/Users/seryu623/Downloads,
 					/Users/seryu623/Desktop,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";
@@ -509,6 +510,7 @@
 					"$(inherited)",
 					/Users/seryu623/Downloads,
 					/Users/seryu623/Desktop,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "okoshiya/okoshiya-Prefix.pch";
