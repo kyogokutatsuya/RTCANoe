@@ -9,6 +9,7 @@
 #import "myViewController.h"
 #import "AlarmViewController.h"
 #import "VoiceRecieveViewController.h"
+#import <Parse/Parse.h>
 
 @interface myViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>{
     NSArray *time_list;
@@ -148,6 +149,27 @@ NSString *settime;
     settime = time_list[self.ROW];
     NSLog(@"settimelog : %@",settime);
     [self performSegueWithIdentifier:@"myviewtoalarm" sender:self];
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *token = [currentInstallation deviceToken];
+    
+    NSString *query = [NSString stringWithFormat:@"DeviceToken=%@&settime=%@",token,settime];
+    NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *url = @"http://okoshiya.xterminal.me/settimer.php";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:queryData];
+    
+    NSURLResponse *response;
+    NSError *error;
+    
+    NSData *result = [NSURLConnection sendSynchronousRequest:request
+                                           returningResponse:&response
+                                                       error:&error];
+    NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", string);
     
     
 }
