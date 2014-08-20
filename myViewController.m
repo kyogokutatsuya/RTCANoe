@@ -7,6 +7,7 @@
 //
 
 #import "myViewController.h"
+#import "AlarmViewController.h"
 
 @interface myViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>{
     NSArray *time_list;
@@ -14,9 +15,12 @@
 
 - (IBAction)voice:(id)sender;
 @property (retain, nonatomic) IBOutlet UIPickerView *myPicker;
+
+
 @end
 
 @implementation myViewController
+NSInteger settime;
 @synthesize recordvoice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,10 +41,29 @@
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
     
-    [self MQDumpNSData:recordvoice];//onseiviewcontrollerからrecordvoiceが届いてるか確認のため
+    settime = 1010;
+    NSLog(@"%ld",(long)settime);
+    
+    //debug用
+    //[self MQDumpNSData:recordvoice];//onseiviewcontrollerからrecordvoiceが届いてるか確認のため
+    
     
     
 }
+
+//--------------------------------------------
+//次のストーリーボードに値を保持しつつ渡すための準備
+//--------------------------------------------
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"myviewtoalarm"] ) {
+        AlarmViewController *alarmviewcontroller = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        alarmviewcontroller.alarmsettime = settime;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,24 +82,25 @@
 }
 
 
-//ピッカーに商事する文字を返す
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return time_list[row];
+//ピッカーに表示する文字を返す
+-(NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return time_list[(long)row];
+   // return [NSString stringWithFormat:@"%ld", (long)row];
 }
 
 
 //ピッカーで選択されたときに行う処理
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"選択=%@", time_list[row]);
     
 }
 
 
 
-
-//--------------------------------------------
-//NSDataにデータはいってるのか確認する関数
-//--------------------------------------------
+//
+////--------------------------------------------
+////NSDataにデータはいってるのか確認する関数
+////--------------------------------------------
 -(void) MQDumpNSData:(NSData *)data
 {
     // データ配列のポインタを得る

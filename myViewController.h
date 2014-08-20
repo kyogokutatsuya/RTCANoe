@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface myViewController : UIViewController
-@property NSData *recordvoice;
+@property (retain, nonatomic)NSData *recordvoice;
 
 
 @end

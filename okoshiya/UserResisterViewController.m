@@ -58,6 +58,24 @@
     NSString *useriddata;
     useriddata = self.userid.text;
    // NSLog(useriddata);
+    
+    NSString *query = [NSString stringWithFormat:@"a=%@",useriddata];
+    NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *url = @"http://okoshiya.xterminal.me";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:queryData];
+    
+    NSURLResponse *response;
+    NSError *error;
+    
+    NSData *result = [NSURLConnection sendSynchronousRequest:request
+                                           returningResponse:&response
+                                                       error:&error];
+    NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", string);
    
     
 }
