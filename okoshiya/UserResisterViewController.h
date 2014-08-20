@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 //id認証とか
 @interface UserResisterViewController : UIViewController
