@@ -33,6 +33,7 @@
 		7E5487C1199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
 		7E5487C9199A03D800B7A2FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E5487C7199A03D800B7A2FE /* InfoPlist.strings */; };
 		7E5487CB199A03D800B7A2FE /* okoshiyaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */; };
+		7EBAC3CE19A4731C00B83BC9 /* setalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBAC3CD19A4731C00B83BC9 /* setalarm.png */; };
 		7EE5A57619A2235A00C10910 /* OnseiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A57119A2235A00C10910 /* OnseiViewController.m */; };
 		7EE5A57A19A2DEA600C10910 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57919A2DEA600C10910 /* AVFoundation.framework */; };
 		7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */; };
@@ -108,6 +109,7 @@
 		7E5487C6199A03D800B7A2FE /* okoshiyaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "okoshiyaTests-Info.plist"; sourceTree = "<group>"; };
 		7E5487C8199A03D800B7A2FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = okoshiyaTests.m; sourceTree = "<group>"; };
+		7EBAC3CD19A4731C00B83BC9 /* setalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setalarm.png; sourceTree = "<group>"; };
 		7EE5A57019A2235A00C10910 /* OnseiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnseiViewController.h; sourceTree = "<group>"; };
 		7EE5A57119A2235A00C10910 /* OnseiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnseiViewController.m; sourceTree = "<group>"; };
 		7EE5A57919A2DEA600C10910 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -145,7 +147,6 @@
 		84260DE519A3413900F78BCA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		84260DE719A3415300F78BCA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		84260DE919A3416F00F78BCA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		84260DEB19A3430600F78BCA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
 		84260E3119A43BC400F78BCA /* VoiceRecieveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecieveViewController.h; sourceTree = "<group>"; };
 		84260E3219A43BC400F78BCA /* VoiceRecieveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecieveViewController.m; sourceTree = "<group>"; };
 		8484D6FB19A1B7D900E210EE /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myViewController.h; path = ../myViewController.h; sourceTree = "<group>"; };
@@ -303,6 +304,7 @@
 		7EE5A57D19A2DED000C10910 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7EBAC3CD19A4731C00B83BC9 /* setalarm.png */,
 				7EE5A57E19A2DED000C10910 /* close.png */,
 				7EE5A57F19A2DED000C10910 /* hukidashi.png */,
 				7EE5A58019A2DED000C10910 /* hukidashi1.png */,
@@ -425,6 +427,7 @@
 				7EE5A59019A2DED000C10910 /* recordbutton.png in Resources */,
 				7EE5A58E19A2DED000C10910 /* maiku.png in Resources */,
 				7E5487B8199A03D800B7A2FE /* Images.xcassets in Resources */,
+				7EBAC3CE19A4731C00B83BC9 /* setalarm.png in Resources */,
 				7EE5A58B19A2DED000C10910 /* hukidashi1.png in Resources */,
 				7E5487AA199A03D800B7A2FE /* InfoPlist.strings in Resources */,
 				7E5487B3199A03D800B7A2FE /* Main.storyboard in Resources */,

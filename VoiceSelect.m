@@ -114,4 +114,6 @@
 }
 */
 
+- (IBAction)okosubutton:(id)sender {
+}
 @end

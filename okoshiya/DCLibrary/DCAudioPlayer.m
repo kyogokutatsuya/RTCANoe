@@ -49,6 +49,10 @@
 //再生
 - (void)play
 {
+    self.afterplayer = [MPMusicPlayerController applicationMusicPlayer];
+    self.volume = [self.afterplayer volume];
+    self.afterplayer.volume = 1.0;
+    
     if (_audioPlayer) {
         if (!_audioPlayer.isPlaying) {
             [_audioPlayer prepareToPlay];

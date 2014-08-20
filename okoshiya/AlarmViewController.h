@@ -32,5 +32,6 @@
 @property(retain, nonatomic)NSData *recordvoice;
 @property (retain, nonatomic)NSString *alarmsettime;
 @property (retain, nonatomic) IBOutlet UILabel *timelabel;
+- (IBAction)stopbutton:(id)sender;
 
 @end
