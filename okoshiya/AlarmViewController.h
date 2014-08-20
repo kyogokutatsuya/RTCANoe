@@ -30,7 +30,7 @@
 
 @interface AlarmViewController : UIViewController
 @property(retain, nonatomic)NSData *recordvoice;
-@property NSInteger alarmsettime;
+@property (retain, nonatomic)NSString *alarmsettime;
 @property (retain, nonatomic) IBOutlet UILabel *timelabel;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AlarmViewController.h"
+#import "VoiceSelect.h"
 
 
 @interface AlarmViewController ()
@@ -58,7 +59,7 @@ typedef enum alarmEventType : NSUInteger {
     //self.alarmsettime = 700;
     
     
-    stringforlabel = [[NSString alloc] initWithFormat:@"%d",self.alarmsettime];
+    stringforlabel = [[NSString alloc] initWithFormat:@"%ld",(long)self.alarmsettime];
     [self convertsetTime];
     [self updateWakeUpTimeLabel:stringforlabel];
     
@@ -330,36 +331,40 @@ typedef enum alarmEventType : NSUInteger {
 
 -(void)convertsetTime{
     
-    switch (self.alarmsettime) {
-        case 600:
+    // 文字列の末尾から2文字を取り出す
+    NSString *substr1 = [self.alarmsettime substringToIndex:1];
+    NSLog(@"h:%@",substr1);
+    const char *H = [substr1 UTF8String];
+    // 指定した範囲の文字列を取り出す
+    NSString *substr2 = [self.alarmsettime substringFromIndex:2];
+     const char *T = [substr2 UTF8String];
+    NSLog(@"t:%@",substr2);
+    self.setHour = 0;
+    self.setMinute = 0;
+    
+    if(strcmp(H,"6") && strcmp(T,"00")){
             self.setHour = 6;
             self.setMinute = 0;
-            break;
-        case 630:
+    }
+    else if(strcmp(H,"6") && strcmp(T,"30")){
             self.setHour = 6;
             self.setMinute = 30;
-            break;
-        case 700:
+    }
+    else if(strcmp(H,"7") && strcmp(T,"00")){
             self.setHour = 7;
             self.setMinute = 0;
-            break;
-        case 730:
+    }
+    else if(strcmp(H,"7") && strcmp(T,"30")){
             self.setHour = 7;
             self.setMinute = 30;
-            break;
-        case 800:
+    }
+    else if(strcmp(H,"8") && strcmp(T,"00")){
             self.setHour = 8;
             self.setMinute = 0;
-            break;
-        case 1010:
-            self.setHour = 1;
-            self.setMinute = 10;
-            break;
-        default:
-            break;
     }
-    
+ 
 }
+
 ////UIDatePickerで指定されている時刻(時)取得
 //- (NSInteger)wakeUpDatePickerHour
 //{
@@ -442,6 +447,20 @@ typedef enum alarmEventType : NSUInteger {
     return nowComponents;
 }
 
+
+//--------------------------------------------
+//次のストーリーボードに値を保持しつつ渡すための準備
+//--------------------------------------------
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"alarmtovoine"] ) {
+         VoiceSelect *voiceselectcontroller = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+       // voiceselectcontroller.recordvoice = audioData;
+    }
+
+}
 
 - (void)dealloc {
     [_timelabel release];

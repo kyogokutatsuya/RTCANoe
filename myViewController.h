@@ -10,6 +10,7 @@
 
 @interface myViewController : UIViewController
 @property (retain, nonatomic)NSData *recordvoice;
+- (IBAction)settimebutton:(id)sender;
 
 
 @end

@@ -13,14 +13,15 @@
     NSArray *time_list;
 }
 
-- (IBAction)voice:(id)sender;
+
 @property (retain, nonatomic) IBOutlet UIPickerView *myPicker;
+@property NSInteger ROW;
 
 
 @end
 
 @implementation myViewController
-NSInteger settime;
+NSString *settime;
 @synthesize recordvoice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,8 +42,8 @@ NSInteger settime;
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
     
-    settime = 1010;
-    NSLog(@"%ld",(long)settime);
+    //settime = 1010;
+    //NSLog(@"%ld",(long)settime);
     
     //debug用
     //[self MQDumpNSData:recordvoice];//onseiviewcontrollerからrecordvoiceが届いてるか確認のため
@@ -84,14 +85,19 @@ NSInteger settime;
 
 //ピッカーに表示する文字を返す
 -(NSString*)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return time_list[(long)row];
+    
+  //  NSLog(@"%ld  %@",(long)row,time_list);
+    //NSLog(@"%@",[NSString stringWithFormat:@"%@",time_list[row]]);
+    return time_list[row];
    // return [NSString stringWithFormat:@"%ld", (long)row];
+    
 }
 
 
 //ピッカーで選択されたときに行う処理
 - (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"選択=%@", time_list[row]);
+    self.ROW = row;
     
 }
 
@@ -130,6 +136,11 @@ NSInteger settime;
 }
 */
 
-- (IBAction)voice:(id)sender {
+
+- (IBAction)settimebutton:(id)sender {
+    //NSString *time;
+    settime = time_list[self.ROW];
+    
+    
 }
 @end
