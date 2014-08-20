@@ -274,7 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="myPicker" destination="FI8-Nx-OvN" id="UVZ-qa-dEL"/>
-                        <outlet property="settimebutton_p" destination="hfB-Az-Et8" id="2ET-Xn-JiK"/>
+                        <outlet property="settimebutton_p" destination="hfB-Az-Et8" id="kAl-Jl-QlE"/>
                         <segue destination="oYi-0V-1uY" kind="modal" identifier="myviewtoalarm" id="NvD-LH-PlO"/>
                     </connections>
                 </viewController>
@@ -424,5 +424,7 @@
         <segue reference="zNo-Ib-DhQ"/>
         <segue reference="NvD-LH-PlO"/>
         <segue reference="IFO-ca-3rv"/>
+        <segue reference="zNo-Ib-DhQ"/>
+        <segue reference="NvD-LH-PlO"/>
     </inferredMetricsTieBreakers>
 </document>
