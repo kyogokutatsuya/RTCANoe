@@ -61,7 +61,8 @@
 		84260DE619A3413900F78BCA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DE519A3413900F78BCA /* MobileCoreServices.framework */; };
 		84260DE819A3415300F78BCA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DE719A3415300F78BCA /* QuartzCore.framework */; };
 		84260DEA19A3416F00F78BCA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DE919A3416F00F78BCA /* StoreKit.framework */; };
-		8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484D6FC19A1B7D900E210EE /* myViewController.m */; };
+		84260E3319A43BC400F78BCA /* VoiceRecieveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84260E3219A43BC400F78BCA /* VoiceRecieveViewController.m */; };
+		8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484D6FC19A1B7D900E210EE /* myViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,9 @@
 		84260DE519A3413900F78BCA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		84260DE719A3415300F78BCA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		84260DE919A3416F00F78BCA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		84260DEB19A3430600F78BCA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
+		84260E3119A43BC400F78BCA /* VoiceRecieveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecieveViewController.h; sourceTree = "<group>"; };
+		84260E3219A43BC400F78BCA /* VoiceRecieveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecieveViewController.m; sourceTree = "<group>"; };
 		8484D6FB19A1B7D900E210EE /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myViewController.h; path = ../myViewController.h; sourceTree = "<group>"; };
 		8484D6FC19A1B7D900E210EE /* myViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myViewController.m; path = ../myViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,8 @@
 		7E5487A5199A03D800B7A2FE /* okoshiya */ = {
 			isa = PBXGroup;
 			children = (
+				84260E3119A43BC400F78BCA /* VoiceRecieveViewController.h */,
+				84260E3219A43BC400F78BCA /* VoiceRecieveViewController.m */,
 				7EE5A5BA19A365CB00C10910 /* audio */,
 				7EE5A5AA19A34C6300C10910 /* DCLibrary */,
 				7EE5A57D19A2DED000C10910 /* images */,
@@ -443,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5487B6199A03D800B7A2FE /* ViewController.m in Sources */,
+				84260E3319A43BC400F78BCA /* VoiceRecieveViewController.m in Sources */,
 				4219210119A2DEA700429684 /* postViewController.m in Sources */,
 				7EE5A5B319A34C6300C10910 /* DCAudioPlayer.m in Sources */,
 				7EE5A5B619A34C6300C10910 /* DCUtil.m in Sources */,

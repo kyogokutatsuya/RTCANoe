@@ -8,6 +8,7 @@
 
 #import "myViewController.h"
 #import "AlarmViewController.h"
+#import "VoiceRecieveViewController.h"
 
 @interface myViewController ()<UIPickerViewDataSource, UIPickerViewDelegate>{
     NSArray *time_list;
