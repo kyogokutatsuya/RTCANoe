@@ -11,6 +11,7 @@
 #import "DCLabel.h"
 #import "DCButton.h"
 #import "DCUtil.h"
+#import <Parse/Parse.h>
 
 #define ALARM_NAME                   @"alarm"
 #define ALARM_FILE_EXT               @"mp3"

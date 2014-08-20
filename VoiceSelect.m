@@ -160,6 +160,28 @@
 */
 
 - (IBAction)okosubutton:(id)sender {
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *token = [currentInstallation deviceToken];
+    
+    NSString *query = [NSString stringWithFormat:@"DeviceToken=%@",token];
+    NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *url = @"http://okoshiya.xterminal.me/okosu.php";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:queryData];
+    
+    NSURLResponse *response;
+    NSError *error;
+    
+    NSData *result = [NSURLConnection sendSynchronousRequest:request
+                                           returningResponse:&response
+                                                       error:&error];
+    NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", string);
+    
 }
 - (void)dealloc {
     [_grouptable release];

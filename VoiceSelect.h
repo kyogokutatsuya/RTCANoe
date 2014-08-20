@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface VoiceSelect : UIViewController <UIScrollViewDelegate>
 - (IBAction)okosubutton:(id)sender;
