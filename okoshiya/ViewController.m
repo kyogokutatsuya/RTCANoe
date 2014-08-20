@@ -10,6 +10,11 @@
 #import "OnseiViewController.h"
 #import "myViewController.h"
 
+
+
+
+
+
 @interface ViewController ()
 
 
@@ -23,7 +28,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+   //  AVAudioPlayer *audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+ 
     
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"mp3"];
+//    NSURL *url = [NSURL fileURLWithPath:path];
+//
+  //-------------fordaisukedebug---------
+    // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+//     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+//    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+//    [audioPlayer play];
+//---------------------------------------
     
     //最初みんなで起きるモードに行けないようにする用
     //self.view_id_ok.enabled = NO;

@@ -67,6 +67,7 @@ typedef enum alarmEventType : NSUInteger {
     //アラームスタート
     [self startAlarmTimer];
     _isStartedAlarm = ALARM_START;
+    
 }
 
 - (void)didReceiveMemoryWarning
