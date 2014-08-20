@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import "DCAudioPlayer.h"
+#import <AVFoundation/AVAudioPlayer.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

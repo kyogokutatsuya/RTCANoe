@@ -38,6 +38,10 @@ NSString *settime;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[self.settimebutton_p layer] setCornerRadius:5.0];
+    [self.settimebutton_p setClipsToBounds:YES];
+    
     // Do any additional setup after loading the view.
     self.myPicker.dataSource = self;
     self.myPicker.delegate = self;
@@ -173,4 +177,5 @@ NSString *settime;
     
     
 }
+
 @end

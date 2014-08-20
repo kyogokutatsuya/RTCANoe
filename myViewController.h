@@ -11,5 +11,6 @@
 @interface myViewController : UIViewController
 @property (retain, nonatomic)NSData *recordvoice;
 - (IBAction)settimebutton:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *settimebutton_p;
 
 @end

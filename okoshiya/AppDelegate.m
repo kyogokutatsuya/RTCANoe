@@ -37,9 +37,30 @@
     //ユーザーデフォルトの初回読み込みフラグ立てる
     [self setLoadedOnceUserDefaults];
     
+    
+     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    
+    
+    UILocalNotification *launchNote = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (launchNote){
+        // I recieved a notification while not running
+        NSLog(@"aaajjdhdhdhdhdfhkfh¥eekjwfhekflkewjflkewj¥¥¥¥¥¥¥¥¥flkwfjlkrjlkrfjlwkejflekwjflkwejflkrwjflkrjfa");
+        
+        
+        
+    }
+    
     return YES;
 }
 
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"fetchjfsjslejgesrferjsesgnvesrjgerjjergiljesrlgfsdnglsdfgjldsfjgj");
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    
+}
 
 
 //ロック&スリープ禁止の切り替え
@@ -115,6 +136,16 @@
     [currentInstallation saveInBackground];
 }
 
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    NSLog(@"sjkjcjfdsnjdsjkldskdsklfjd;lckdjdvsjl;sjvks;aldjfkdsla;djnvdsl;fls;");
+    
+  
+//    
+//        AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+//        [audioPlayer play];
+  
+}
 
 
 
