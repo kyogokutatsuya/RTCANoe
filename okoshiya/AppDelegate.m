@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AlarmViewController.h"
 #import <Parse/Parse.h>
 
 #define ParseApplicationID @"F92aIWE3lhOTe5xO2ZiazXsTdRVJ6IAGwLr3uYXS"

@@ -161,30 +161,29 @@
 
 - (IBAction)okosubutton:(id)sender {
     
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    NSString *token = [currentInstallation deviceToken];
+    // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
+    PFQuery *query = [PFInstallation query];
+    //TODO: 変更
+    [query whereKey:@"channels" equalTo:@"global"];
     
-    NSString *query = [NSString stringWithFormat:@"DeviceToken=%@",token];
-    NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *url = @"http://okoshiya.xterminal.me/okosu.php";
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
-    [request setURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:queryData];
+    PFPush *push = [[PFPush alloc]init];
+    NSDictionary *dict = @{@"content-available":@"1",
+                           @"voice":@"self.recordvoice",
+                           @"alert":@"hello world"};
+    [push setQuery:query];
+    [push setData:dict];
     
-    NSURLResponse *response;
-    NSError *error;
-    
-    NSData *result = [NSURLConnection sendSynchronousRequest:request
-                                           returningResponse:&response
-                                                       error:&error];
-    NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", string);
-    
-}
-- (void)dealloc {
-    [_grouptable release];
-    [super dealloc];
+    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded){
+            NSLog(@"成功");
+        }else{
+            NSLog(@"失敗　%@",error);
+        }
+    } ];
 }
 @end
+/*- (void)dealloc {
+    [_grouptable release];
+    [super dealloc];
+}*/

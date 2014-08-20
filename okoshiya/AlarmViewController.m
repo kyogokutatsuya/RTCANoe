@@ -8,7 +8,7 @@
 
 #import "AlarmViewController.h"
 #import "VoiceSelect.h"
-
+#import <Parse/Parse.h>
 
 @interface AlarmViewController ()
 
