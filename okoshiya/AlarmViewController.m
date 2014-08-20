@@ -44,7 +44,6 @@ typedef enum alarmEventType : NSUInteger {
 
 - (void)viewDidLoad
 {
-    NSString *stringforlabel;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -59,9 +58,11 @@ typedef enum alarmEventType : NSUInteger {
     //self.alarmsettime = 700;
     
     
-    stringforlabel = [[NSString alloc] initWithFormat:@"%ld",(long)self.alarmsettime];
+    //stringforlabel = [[NSString alloc] initWithFormat:@"%ld",(long)self.alarmsettime];
+    //self.timelabel.text = self.alarmsettime;
+    NSLog(@"labeltext %@",self.alarmsettime);
     [self convertsetTime];
-    [self updateWakeUpTimeLabel:stringforlabel];
+    [self updateWakeUpTimeLabel:self.alarmsettime];
     
     //アラームスタート
     [self startAlarmTimer];
@@ -334,34 +335,66 @@ typedef enum alarmEventType : NSUInteger {
     // 文字列の末尾から2文字を取り出す
     NSString *substr1 = [self.alarmsettime substringToIndex:1];
     NSLog(@"h:%@",substr1);
-    const char *H = [substr1 UTF8String];
+    //const char *H = [substr1 UTF8String];
     // 指定した範囲の文字列を取り出す
     NSString *substr2 = [self.alarmsettime substringFromIndex:2];
-    const char *T = [substr2 UTF8String];
+    //const char *T = [substr2 UTF8String];
     NSLog(@"t:%@",substr2);
     self.setHour = 0;
     self.setMinute = 0;
+   
+    //debugmode
+//    BOOL a = strcasecmp(H,SIX);
+//    if(a==YES) NSLog(@"ok");
+//    else NSLog(@"no");
     
-    if(strcmp(H,"6") && strcmp(T,"00")){
-        self.setHour = 6;
-        self.setMinute = 0;
+    NSInteger HH = [substr1 intValue];
+    NSInteger MM = [substr2 intValue];
+    
+    
+    if(HH == 6 && MM == 0){
+        self.setHour = 16;
+        self.setMinute = 16;
     }
-    else if(strcmp(H,"6") && strcmp(T,"30")){
+    else if(HH == 6 && MM == 30){
         self.setHour = 6;
         self.setMinute = 30;
     }
-    else if(strcmp(H,"7") && strcmp(T,"00")){
+    else if(HH == 7 && MM == 0){
         self.setHour = 7;
         self.setMinute = 0;
     }
-    else if(strcmp(H,"7") && strcmp(T,"30")){
+    else if(HH == 7 && MM == 30){
         self.setHour = 7;
         self.setMinute = 30;
     }
-    else if(strcmp(H,"8") && strcmp(T,"00")){
+    else if(HH == 8 && MM == 0){
         self.setHour = 8;
         self.setMinute = 0;
     }
+
+    
+    
+//    if(strcasecmp(H,SIX) && strcasecmp(T,ZERO)){
+//        self.setHour = 6;
+//        self.setMinute = 0;
+//    }
+//    else if(strcasecmp(H,SIX) && strcasecmp(T,THIRTY)){
+//        self.setHour = 6;
+//        self.setMinute = 30;
+//    }
+//    else if(strcasecmp(H,SEVEN) && strcasecmp(T,ZERO)){
+//        self.setHour = 7;
+//        self.setMinute = 0;
+//    }
+//    else if(strcasecmp(H,SEVEN) && strcasecmp(T,THIRTY)){
+//        self.setHour = 7;
+//        self.setMinute = 30;
+//    }
+//    else if(strcasecmp(H,EIGHT) && strcasecmp(T,ZERO)){
+//        self.setHour = 8;
+//        self.setMinute = 0;
+//    }
     
 }
 
@@ -454,10 +487,10 @@ typedef enum alarmEventType : NSUInteger {
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //Segueの特定
-    if ( [[segue identifier] isEqualToString:@"alarmtovoine"] ) {
+    if ( [[segue identifier] isEqualToString:@"alarmtovoice"] ) {
         VoiceSelect *voiceselectcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
-        // voiceselectcontroller.recordvoice = audioData;
+        //voiceselectcontroller.recordvoice = audioData;
     }
     
 }
@@ -465,5 +498,20 @@ typedef enum alarmEventType : NSUInteger {
 - (void)dealloc {
     [_timelabel release];
     [super dealloc];
+}
+
+
+//--------------------------------------------
+//起きたボタンおされたらの処理
+//--------------------------------------------
+- (IBAction)stopbutton:(id)sender {
+    
+    //アラームとめる
+     [self stopAlarm];
+
+    //つぎのコントローラーいく！
+    [self performSegueWithIdentifier:@"alarmtovoice" sender:self];
+    
+    
 }
 @end

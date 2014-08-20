@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VoiceSelect : UIViewController
+- (IBAction)okosubutton:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #define AUDIO_VOLUME_SLIDER_WIDTH  220
 #define AUDIO_VOLUME_SLIDER_HEIGHT 0
@@ -33,6 +34,9 @@
 @property (readonly, getter=isPlaying) BOOL   playing;
 @property (readonly) NSURL                    *url;
 @property float                               volume;
+@property float   beforevolume;
+@property (retain, nonatomic)MPMusicPlayerController *afterplayer;
+
 
 - (id)initWithAudio:(NSString *)fileName ext:(NSString *)ext isUseDelegate:(BOOL)isUseDelegate;
 - (void)play;
@@ -45,6 +49,8 @@
 - (BOOL)isPlaying;
 
 @end
+
+
 
 #pragma mark delegate prottype
 @protocol DCAudioPlayerDelegate <NSObject>

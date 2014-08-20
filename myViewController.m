@@ -43,7 +43,7 @@ NSString *settime;
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
     
-    //settime = 1010;
+    //settime = @"7:00";
     //NSLog(@"%ld",(long)settime);
     
     //debug用
@@ -100,6 +100,7 @@ NSString *settime;
     NSLog(@"選択=%@", time_list[row]);
     self.ROW = row;
     
+    
 }
 
 
@@ -138,9 +139,15 @@ NSString *settime;
  */
 
 
+
+//--------------------------------------------
+//Settimebuttonが押されたら時間をセットしAlarmviewにいく
+//--------------------------------------------
 - (IBAction)settimebutton:(id)sender {
     //NSString *time;
     settime = time_list[self.ROW];
+    NSLog(@"settimelog : %@",settime);
+    [self performSegueWithIdentifier:@"myviewtoalarm" sender:self];
     
     
 }
