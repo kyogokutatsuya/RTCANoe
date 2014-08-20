@@ -81,6 +81,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4A-3Y-LBZ">
                                 <rect key="frame" x="247" y="138" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.076681840129999998" green="0.31266983700000001" blue="0.1138049069" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="POST">
                                     <color key="titleColor" red="1" green="0.9707749059102514" blue="0.99034638599474079" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,8 +100,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5d-Aw-0MP">
                                 <rect key="frame" x="102" y="183" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.84316009231009648" blue="0.40645144155887891" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ID Checker">
-                                    <color key="titleColor" red="1" green="0.97077490590000004" blue="0.99034638600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.076681840129999998" green="0.31266983700000001" blue="0.1138049069" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -139,6 +141,7 @@
                         <color key="backgroundColor" red="0.4344166022" green="0.79967730979999996" blue="0.34646576569999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="checkbutton" destination="K5d-Aw-0MP" id="Na9-PY-det"/>
                         <outlet property="postidbutton_p" destination="s4A-3Y-LBZ" id="nd8-0k-Gjg"/>
                         <outlet property="userid" destination="dVy-f1-95f" id="Zy7-yj-n8F"/>
                     </connections>
@@ -292,13 +295,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KXe-07-Cu0" id="aKu-SZ-sZm">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mGS-7q-L6m">
                                 <rect key="frame" x="0.0" y="69" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.82889104049932971" blue="0.36284937396816896" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yRV-zh-kxC" id="zR5-na-g0P"/>
                                     <outlet property="delegate" destination="yRV-zh-kxC" id="zCj-YW-iJ9"/>
@@ -336,6 +340,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.4344166022" green="0.79967730979999996" blue="0.34646576569999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="grouptable" destination="mGS-7q-L6m" id="CCC-Tb-tF9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5br-BL-WSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -391,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZy-Zc-8nH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="-658"/>
+            <point key="canvasLocation" x="478" y="-707"/>
         </scene>
     </scenes>
     <resources>

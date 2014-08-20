@@ -29,6 +29,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.postidbutton_p.enabled = NO;
+    
+    [[self.postidbutton_p layer] setCornerRadius:5.0];
+    [self.postidbutton_p setClipsToBounds:YES];
+    [[self.checkbutton layer] setCornerRadius:5.0];
+    [self.checkbutton setClipsToBounds:YES];
+    
+    //buttonのアクティブ時と非アクティブ時の色とか
+   [self.postidbutton_p setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+     [self.postidbutton_p setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    
+    
+    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
+    self.singleTap.delegate = self;
+    self.singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.singleTap];
 
 }
 
@@ -93,12 +108,35 @@
 	if (match.location != NSNotFound) {
 		NSLog(@"Found: %@",[textField.text substringWithRange:match]);
 		self.postidbutton_p.enabled = YES;
+       
 	} else {
 		NSLog(@"Not Found");
 		self.postidbutton_p.enabled = NO;
+        
 	}
 }
 - (IBAction)check_vali:(id)sender {
     [self textFieldEditingChanged:self.userid];
+}
+
+
+-(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self.userid resignFirstResponder];
+}
+
+-(BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (gestureRecognizer == self.singleTap) {
+        // キーボード表示中のみ有効
+        if (self.userid.isFirstResponder) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+- (void)dealloc {
+    [_checkbutton release];
+    [super dealloc];
 }
 @end

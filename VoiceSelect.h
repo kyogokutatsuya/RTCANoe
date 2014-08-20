@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VoiceSelect : UIViewController
+@interface VoiceSelect : UIViewController <UIScrollViewDelegate>
 - (IBAction)okosubutton:(id)sender;
+@property (retain ,nonatomic)NSString *timegroup;
+@property (retain, nonatomic) IBOutlet UITableView *grouptable;
 
 @end

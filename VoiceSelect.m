@@ -9,11 +9,12 @@
 #import "VoiceSelect.h"
 
 @interface VoiceSelect ()<UITableViewDataSource, UITableViewDelegate>
-
+@property NSString *groupstr;
 
 @end
 
 @implementation VoiceSelect
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.groupstr = [self.timegroup stringByAppendingString:@" GROUP"];
+    
+    self.grouptable.bounces = NO;
+    for (UIView *view in self.grouptable.subviews) {
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            
+            UIScrollView *scView = (UIScrollView *)view;
+            scView.delegate = self;
+            scView.bounces = NO;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +58,41 @@
     return 10;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-       return @"GROUP";
+
+//headerのサイズ
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
+    return 40;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    UIView *headerView = [[self grouptable] tableHeaderView];
+    [headerView setFrame:CGRectMake(headerView.frame.origin.x
+                                    , self.grouptable.contentOffset.y
+                                    , headerView.frame.size.width
+                                    , headerView.frame.size.height)];
+}
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+    //headerの上にview作成
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    //ラベル作成
+    UILabel *tablelabel = [[UILabel alloc]initWithFrame:view.frame];
+    
+    
+    tablelabel.font = [UIFont fontWithName:@"Helvetica" size:[UIFont labelFontSize]+3];
+    tablelabel.text = self.groupstr;
+    tablelabel.textAlignment = NSTextAlignmentCenter;
+    
+    tablelabel.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:211.0f/255.0f blue:93.0f/255.0f alpha:1.0];
+    
+    
+    [view addSubview:tablelabel];
+    
+    return  view;
 }
 
 //表示するセル
@@ -64,7 +109,7 @@
     //セルのラベルに設定する
     cell.textLabel.text = title;
     //文字の色
-    cell.textLabel.textColor = [UIColor greenColor];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     
     //起きたらme.png寝てたらclose.pngを表示
     UIImage *image = [UIImage imageNamed:@"close.png" ];
@@ -115,5 +160,9 @@
 */
 
 - (IBAction)okosubutton:(id)sender {
+}
+- (void)dealloc {
+    [_grouptable release];
+    [super dealloc];
 }
 @end
