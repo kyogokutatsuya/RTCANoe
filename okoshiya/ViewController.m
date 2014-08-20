@@ -27,6 +27,27 @@
     
     //最初みんなで起きるモードに行けないようにする用
     //self.view_id_ok.enabled = NO;
+    
+    
+//    
+//    NSDate *fireDate = [[NSDate alloc]initWithTimeIntervalSinceNow:5];
+//    
+//    // 通知時間 < 現在時 なら設定しない
+//    if (fireDate == nil || [fireDate timeIntervalSinceNow] <= 0) {
+//        return;
+//    }
+//    // 設定する前に、設定済みの通知をキャンセルする
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//    // 設定し直す
+//    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+//    localNotification.fireDate = fireDate;
+//    localNotification.alertBody = @"Fire!";
+//    localNotification.timeZone = [NSTimeZone localTimeZone];
+//    localNotification.soundName = @"alarm.mp3";
+//    localNotification.alertAction = @"OPEN";
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//    
+   
 }
 
 

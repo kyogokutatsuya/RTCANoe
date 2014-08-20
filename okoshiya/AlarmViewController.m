@@ -354,8 +354,8 @@ typedef enum alarmEventType : NSUInteger {
     
     //アラーム設定
     if(HH == 6 && MM == 0){
-        self.setHour = 16;
-        self.setMinute = 16;
+        self.setHour = 21;
+        self.setMinute = 6;
     }
     else if(HH == 6 && MM == 30){
         self.setHour = 6;
@@ -514,5 +514,10 @@ typedef enum alarmEventType : NSUInteger {
     [self performSegueWithIdentifier:@"alarmtovoice" sender:self];
     
     
+    
 }
+
+
+
+
 @end
