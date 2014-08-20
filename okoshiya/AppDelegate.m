@@ -12,6 +12,29 @@
 #define ParseApplicationID @"F92aIWE3lhOTe5xO2ZiazXsTdRVJ6IAGwLr3uYXS"
 #define ParseClientKey     @"rOpagcRL6RHdikb2L1sZi2QYHgf6UVrrAT4Tchuz"
 
+
+
+#define ALARM_NAME                   @"alarm"
+#define ALARM_FILE_EXT               @"mp3"
+#define ALARM_PICKER_WIDTH           320
+#define ALARM_PICKER_HEIGHT          192
+#define ALARM_PICKER_MINUTE_INTERVAL 5
+#define ALARM_PLAY_INFINITE          -1
+#define ALARM_TIME_DATE_FORMAT       @"HH:mm"
+#define ALARM_TIMER_INTERVAL         1
+#define ALARM_START_MESSAGE          @"アラームを開始しました。アプリを終了したりスリープさせないでください。"
+#define ALARM_ERROR_MESSAGE          @"指定時刻と現在時刻が同じです"
+#define ALARM_CTR_BTN_WIDTH          100
+#define ALARM_CTR_BTN_HEIGHT         48
+#define ALARM_CTR_BTN_Y              142
+#define WAKE_UP_TIME_RECT            CGRectMake(0, 0, 320, 48)
+#define WAKE_UP_TIME_LABEL_FONT      [UIFont fontWithName:@"Futura" size:16]
+
+
+
+
+
+
 @implementation AppDelegate
 
 
@@ -53,7 +76,7 @@
     
     return YES;
 }
-
+/*
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"fetchjfsjslejgesrferjsesgnvesrjgerjjergiljesrlgfsdnglsdfgjldsfjgj");
@@ -61,6 +84,7 @@
     
     
 }
+ */
 
 
 //ロック&スリープ禁止の切り替え
@@ -127,6 +151,7 @@
 //DeviceToken受信メソッド
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     
     //取得したDeveiceTokenを設定する
@@ -138,13 +163,18 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
-    NSLog(@"sjkjcjfdsnjdsjkldskdsklfjd;lckdjdvsjl;sjvks;aldjfkdsla;djnvdsl;fls;");
     
-  
-//    
-//        AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
-//        [audioPlayer play];
-  
+     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+    [audioPlayer play];
+    
+    
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    
+    
 }
 
 
