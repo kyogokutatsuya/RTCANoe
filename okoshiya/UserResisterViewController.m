@@ -55,11 +55,14 @@
 //-----------------------------------
 - (IBAction)postidbutton:(id)sender {
     
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *token = [currentInstallation deviceToken];
+    
     NSString *useriddata;
     useriddata = self.userid.text;
    // NSLog(useriddata);
     
-    NSString *query = [NSString stringWithFormat:@"a=%@",useriddata];
+    NSString *query = [NSString stringWithFormat:@"a=%@&DeviceToken=%@",useriddata,token];
     NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
     
     NSString *url = @"http://okoshiya.xterminal.me";

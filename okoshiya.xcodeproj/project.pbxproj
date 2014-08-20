@@ -18,6 +18,7 @@
 		4219211819A32BEF00429684 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219211719A32BEF00429684 /* QuartzCore.framework */; };
 		4219211A19A32C0300429684 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219211919A32C0300429684 /* StoreKit.framework */; };
 		4219212119A43BAB00429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219212019A43BAB00429684 /* Parse.framework */; };
+		4219212219A447F300429684 /* postViewController.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -156,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4219212219A447F300429684 /* postViewController.m in Frameworks */,
 				7EE5A5A619A331C400C10910 /* MediaPlayer.framework in Frameworks */,
 				4219211A19A32C0300429684 /* StoreKit.framework in Frameworks */,
 				4219211819A32BEF00429684 /* QuartzCore.framework in Frameworks */,
