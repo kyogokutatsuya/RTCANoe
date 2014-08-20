@@ -352,6 +352,7 @@ typedef enum alarmEventType : NSUInteger {
     NSInteger MM = [substr2 intValue];
     
     
+    //アラーム設定
     if(HH == 6 && MM == 0){
         self.setHour = 16;
         self.setMinute = 16;
@@ -490,7 +491,7 @@ typedef enum alarmEventType : NSUInteger {
     if ( [[segue identifier] isEqualToString:@"alarmtovoice"] ) {
         VoiceSelect *voiceselectcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
-        //voiceselectcontroller.recordvoice = audioData;
+        voiceselectcontroller.timegroup = self.alarmsettime;
     }
     
 }
