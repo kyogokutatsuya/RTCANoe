@@ -19,6 +19,7 @@
 		4219211A19A32C0300429684 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219211919A32C0300429684 /* StoreKit.framework */; };
 		4219212119A43BAB00429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219212019A43BAB00429684 /* Parse.framework */; };
 		4219212219A447F300429684 /* postViewController.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
+		4219212419A51FB200429684 /* OnseiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212319A51FB200429684 /* OnseiViewController.m */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -89,6 +90,7 @@
 		4219211719A32BEF00429684 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4219211919A32C0300429684 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4219212019A43BAB00429684 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4219212319A51FB200429684 /* OnseiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnseiViewController.m; path = images/OnseiViewController.m; sourceTree = "<group>"; };
 		7E54879C199A03D800B7A2FE /* okoshiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okoshiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E54879F199A03D800B7A2FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -255,6 +257,7 @@
 				7E5487AF199A03D800B7A2FE /* AppDelegate.m */,
 				7E5487B1199A03D800B7A2FE /* Main.storyboard */,
 				7EE5A57019A2235A00C10910 /* OnseiViewController.h */,
+				4219212319A51FB200429684 /* OnseiViewController.m */,
 				7E5487B4199A03D800B7A2FE /* ViewController.h */,
 				7E5487B5199A03D800B7A2FE /* ViewController.m */,
 				7EE5A5A719A33E5F00C10910 /* AlarmViewController.h */,
@@ -461,6 +464,7 @@
 				8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */,
 				7E5487AC199A03D800B7A2FE /* main.m in Sources */,
 				7EE5A5B419A34C6300C10910 /* DCButton.m in Sources */,
+				4219212419A51FB200429684 /* OnseiViewController.m in Sources */,
 				7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */,
 				840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */,
 			);
