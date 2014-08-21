@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "GTMHTTPFetcher.h"
 
 @interface VoiceSelect : UIViewController <UIScrollViewDelegate>
+{
+    NSArray *members;
+    int checkedRow;
+}
 - (IBAction)okosubutton:(id)sender;
 @property (retain ,nonatomic)NSString *timegroup;
 @property (retain, nonatomic) IBOutlet UITableView *grouptable;
