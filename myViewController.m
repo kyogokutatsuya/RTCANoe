@@ -210,7 +210,8 @@ NSString *settime;
     //PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
     
     PFObject *voice = [PFObject objectWithClassName:@"voice"];
-    voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+   
+    //voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
    
     PFFile *voicefile = [PFFile fileWithData:self.recordvoice];
     
@@ -218,7 +219,6 @@ NSString *settime;
     //クエリからUseIDがすでにあるか探してあるなら上書き
     [query whereKey:@"userid" equalTo:[userDefaults objectForKey:@"UserID"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-       
         
         if (objects.count == 0) {
             
@@ -230,7 +230,20 @@ NSString *settime;
         
         }
         
-        voice[@"voicedata"] = voicefile;
+        for (PFObject *object in objects) {
+            [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded)NSLog(@"delete ");
+                else NSLog(@"%@",error);
+            }];
+        }
+        
+       // [query de]
+        voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+            voice[@"voicedata"] = voicefile;
+//            [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if(succeeded) NSLog(@"seikou ok");
+//                else  NSLog(@"%@",error);
+//            }];
         
         [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(succeeded) NSLog(@"seikou ");
