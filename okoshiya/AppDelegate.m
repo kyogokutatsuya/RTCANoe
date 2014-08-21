@@ -162,12 +162,17 @@
     [currentInstallation saveInBackground];
 }
 
+
+
+
+//backgroundにてpushきたら鳴るようにする
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
     
      AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
     [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+    //[audioPlayer prepareToPlay];
     [audioPlayer play];
     
     
@@ -178,6 +183,28 @@
     
 }
 
+//------------------------
+//parse から　json　でこれを送ると鳴るはず
+//
+//
+//{ "aps": { "content-available": 1, "alert": "content test", "badge": 0} }
+//
+//------------------------
 
+
+
+//forgroundにてpushきても鳴るようにする
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+    //[audioPlayer prepareToPlay];
+    [audioPlayer play];
+    
+
+}
 
 @end
