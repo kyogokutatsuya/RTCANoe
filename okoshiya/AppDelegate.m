@@ -289,12 +289,12 @@
     
     
     //ここに、バックグラウンドで声がなるようにしたい
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
-    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
-    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-    //[audioPlayer prepareToPlay];
-    [audioPlayer play];
-    
+//    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+//    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+//    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+//    //[audioPlayer prepareToPlay];
+//    [audioPlayer play];
+//    
     
     completionHandler(UIBackgroundFetchResultNewData);
     
