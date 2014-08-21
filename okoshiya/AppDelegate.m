@@ -152,11 +152,17 @@
 //DeviceToken受信メソッド
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+        NSString *user_id = [userDefaults objectForKey:@"UserID"];
+        NSLog(@"user id : %@", user_id);
+    
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     
     //取得したDeveiceTokenを設定する
     [currentInstallation setDeviceTokenFromData:deviceToken];
+    
+    //channelsにuseridを設定する
+    [[PFInstallation currentInstallation] addUniqueObject:[userDefaults objectForKey:@"UserID"] forKey:@"channels"];
     
     //保存する
     [currentInstallation saveInBackground];
@@ -169,7 +175,15 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
     
-     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+    
+    NSData *recivedata = [[NSData alloc]initWithBase64EncodedString:userInfo[@"voice"] options:kNilOptions];
+
+    
+    
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
+                                  
+                                  
+    // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
     [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
     //[audioPlayer prepareToPlay];
