@@ -54,6 +54,7 @@
                     <connections>
                         <outlet property="coButton" destination="RZ6-fI-BzJ" id="N7R-I7-AY5"/>
                         <outlet property="view_id_ok" destination="26G-pQ-CQh" id="Th5-Th-rmp"/>
+                        <segue destination="oYi-0V-1uY" kind="modal" identifier="viewtoalarm" id="a2d-hE-oDq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -354,7 +355,7 @@
         <!--Alarm View Controller-->
         <scene sceneID="gfP-tU-unU">
             <objects>
-                <viewController id="oYi-0V-1uY" customClass="AlarmViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alarm" id="oYi-0V-1uY" customClass="AlarmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ib-mn-Dgm"/>
                         <viewControllerLayoutGuide type="bottom" id="QeP-Nc-w0i"/>
@@ -401,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZy-Zc-8nH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="478" y="-707"/>
+            <point key="canvasLocation" x="-458" y="-65"/>
         </scene>
     </scenes>
     <resources>
@@ -421,10 +422,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zNo-Ib-DhQ"/>
-        <segue reference="NvD-LH-PlO"/>
-        <segue reference="IFO-ca-3rv"/>
-        <segue reference="zNo-Ib-DhQ"/>
-        <segue reference="NvD-LH-PlO"/>
+        <segue reference="a2d-hE-oDq"/>
+        <segue reference="mfE-Bp-oII"/>
+        <segue reference="iLB-fT-Whp"/>
     </inferredMetricsTieBreakers>
 </document>

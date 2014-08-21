@@ -176,9 +176,11 @@
    // NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
     
     PFPush *push = [[PFPush alloc]init];
-    NSDictionary *dict = @{@"content-available":token,
-                           //@"content-available":hoge,
+    NSDictionary *dict = @{@"content-available":@"1",
+                           
+                           @"userid":[[NSUserDefaults standardUserDefaults]objectForKey:@"UserID"],
                            @"alert":@"hello world"};
+    
     [push setQuery:query];
     [push setData:dict];
     

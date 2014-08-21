@@ -10,6 +10,7 @@
 #import "AlarmViewController.h"
 #import <Parse/Parse.h>
 
+
 #define ParseApplicationID @"F92aIWE3lhOTe5xO2ZiazXsTdRVJ6IAGwLr3uYXS"
 #define ParseClientKey     @"rOpagcRL6RHdikb2L1sZi2QYHgf6UVrrAT4Tchuz"
 
@@ -176,6 +177,15 @@
 
 //backgroundにてpushきたら鳴るようにする
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *viewController;
+    viewController = [storyboard instantiateViewControllerWithIdentifier:@"alarm"];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
     
     //userinfo よりpushされた相手のidをとってくる
     NSString *pushedID = [userInfo objectForKey:@"userid"];
