@@ -10,11 +10,13 @@
 #import "myViewController.h"
 
 @interface OnseiViewController ()
-
+@property (retain, nonatomic)NSString *hoge;
 @end
 
 @implementation OnseiViewController
 NSData *audioData;
+
+
 @synthesize session;
 @synthesize recorder;
 @synthesize player;
@@ -127,7 +129,10 @@ NSData *audioData;
     if ( [[segue identifier] isEqualToString:@"OnseitoMyview"] ) {
         myViewController *myviewcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        
+      //  NSLog(@"onsei to myview : %@",self.hoge);
         myviewcontroller.recordvoice = audioData;
+       
     }
 }
 
@@ -187,17 +192,17 @@ NSData *audioData;
         [recorder stop];
         self.recorder = nil;
         
-        //cafをNSDataに変換（たぶん）
-        // File Path
-        NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        NSString *filePath = [dir stringByAppendingPathComponent:@"test.caf"];
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        BOOL success = [fileManager fileExistsAtPath:filePath];
-        if(success) {
-            audioData = [[NSData alloc] initWithContentsOfFile:filePath];
-            NSLog(@"%@",audioData);
-            [self MQDumpNSData:audioData];
-        }
+//        //cafをNSDataに変換（たぶん）
+//        // File Path
+//        NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+//        NSString *filePath = [dir stringByAppendingPathComponent:@"test.caf"];
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        BOOL success = [fileManager fileExistsAtPath:filePath];
+//        if(success) {
+//            audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+//            NSLog(@"%@",audioData);
+//            [self MQDumpNSData:audioData];
+//        }
     }
 }
 
@@ -254,6 +259,22 @@ NSData *audioData;
 - (IBAction)playClick:(id)sender
 {
     [self playRecord];
+    //cafをNSDataに変換（たぶん）
+    // File Path
+    NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *filePath = [dir stringByAppendingPathComponent:@"test.caf"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success = [fileManager fileExistsAtPath:filePath];
+    if(success) {
+        audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+        NSLog(@"%@",audioData);
+        //[self MQDumpNSData:audioData];
+    }
+    
+   // self.hoge = [audioData base64EncodedStringWithOptions:kNilOptions];
+    //NSLog(@"henkan ok  %@",self.hoge);
+    
+    
 }
 
 
@@ -264,5 +285,9 @@ NSData *audioData;
     [self performSegueWithIdentifier:@"OnseitoMyview" sender:self];
     
 }
+
+
+
+
 
 @end

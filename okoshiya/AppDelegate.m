@@ -69,7 +69,7 @@
     UILocalNotification *launchNote = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (launchNote){
         // I recieved a notification while not running
-        NSLog(@"aaajjdhdhdhdhdfhkfh¥eekjwfhekflkewjflkewj¥¥¥¥¥¥¥¥¥flkwfjlkrjlkrfjlwkejflekwjflkwejflkrwjflkrjfa");
+      //  NSLog(@"aaajjdhdhdhdhdfhkfh¥eekjwfhekflkewjflkewj¥¥¥¥¥¥¥¥¥flkwfjlkrjlkrfjlwkejflekwjflkwejflkrwjflkrjfa");
         
         
         
@@ -156,7 +156,10 @@
         NSLog(@"user id : %@", user_id);
     
     
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    
     
     //取得したDeveiceTokenを設定する
     [currentInstallation setDeviceTokenFromData:deviceToken];
@@ -174,16 +177,36 @@
 //backgroundにてpushきたら鳴るようにする
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
+    //userinfo よりpushされた相手のidをとってくる
+    NSString *pushedID = [userInfo objectForKey:@"userid"];
     
     
-    NSData *recivedata = [[NSData alloc]initWithBase64EncodedString:userInfo[@"voice"] options:kNilOptions];
+    PFObject *obj = [PFObject objectWithClassName:@"voice"];
+    PFObject *userid = [PFObject objectWithClassName:@"userid"];
+    
+    //voicedataはparseのDBのcolumn
+    PFFile *DLdata = obj[@"voicedata"];
+    
 
+   // if()
+    [DLdata getDataInBackgroundWithBlock:^(NSData *recivedata, NSError *error) {
+        if (!error) {
+            
+            AVAudioPlayer *RaudioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
+            
+            RaudioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+            [RaudioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+            //[audioPlayer prepareToPlay];
+            [RaudioPlayer play];
+            
+        }
+    }];
     
     
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
+   // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
                                   
                                   
-    // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
     [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
     //[audioPlayer prepareToPlay];
