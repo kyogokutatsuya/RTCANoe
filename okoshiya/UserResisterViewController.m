@@ -70,6 +70,13 @@
 //-----------------------------------
 - (IBAction)postidbutton:(id)sender {
     
+    
+    //userDefaults更新
+    [userDefaults setObject:self.userid.text forKey:@"UserID"];
+    [userDefaults synchronize];
+    
+    
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
     

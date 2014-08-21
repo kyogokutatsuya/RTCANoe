@@ -512,6 +512,9 @@ typedef enum alarmEventType : NSUInteger {
     //アラームとめる
      [self stopAlarm];
     
+//    NSString *user_id = [userDefaults objectForKey:@"UserID"];
+//    NSLog(@"user id : %@", user_id);
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
     
