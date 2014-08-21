@@ -207,11 +207,11 @@ NSString *settime;
 //    [currentInstallation ]
    // PFObject *targettaken = [PFObject objectWithoutDataWithClassName:mytoken objectId:token];
     
-    PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
+    //PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
     
     PFObject *voice = [PFObject objectWithClassName:@"voice"];
-    voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
-    voice[@"voicedata"] = voicefile;
+    voice[@"userid"] = [userDefaults objectForKey:@"dsk_id"];
+    voice[@"voicedata"] = self.recordvoice;
     
     
    // [PFInstallation currentInstallation]
