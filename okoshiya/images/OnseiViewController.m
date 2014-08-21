@@ -103,7 +103,7 @@ NSData *audioData;
     
     [recorder updateMeters];
     [recorder peakPowerForChannel:0];
-    [recorder recordForDuration: 5.0];//５秒で録音とめる
+    [recorder recordForDuration: 3.0];//3秒で録音とめる
     [recorder record];
     
     /*

@@ -186,7 +186,7 @@ NSString *settime;
 //-------------------------------------------
 -(void)voicetodatabase{
     
-     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    // PFInstallation *currentInstallation = [PFInstallation currentInstallation];
   //  NSString *mytoken = [currentInstallation deviceToken];
     
 //    //userDefaults更新
@@ -210,16 +210,43 @@ NSString *settime;
     //PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
     
     PFObject *voice = [PFObject objectWithClassName:@"voice"];
-    voice[@"userid"] = [userDefaults objectForKey:@"dsk_id"];
-    voice[@"voicedata"] = self.recordvoice;
+    voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+   
+    PFFile *voicefile = [PFFile fileWithData:self.recordvoice];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"voice"];
+    //クエリからUseIDがすでにあるか探してあるなら上書き
+    [query whereKey:@"userid" equalTo:[userDefaults objectForKey:@"UserID"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+       
+        
+        if (objects.count == 0) {
+            
+           // [query getObjectInBackgroundWithId:@"userid" block:^(PFObject *voice, NSError *error) {
+                voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+                voice[@"voicedata"] = voicefile;
+                
+           // }];
+        
+        }
+        
+        voice[@"voicedata"] = voicefile;
+        
+        [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(succeeded) NSLog(@"seikou ");
+            else  NSLog(@"%@",error);
+        }];
+        
+    }];
+    
     
     
    // [PFInstallation currentInstallation]
     //保存する
-    [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(succeeded) NSLog(@"seikou ");
-        else  NSLog(@"%@",error);
-    }];
+//    [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if(succeeded) NSLog(@"seikou ");
+//        else  NSLog(@"%@",error);
+//    }];
 
     
 }
