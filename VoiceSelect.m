@@ -15,7 +15,41 @@
 @end
 
 @implementation VoiceSelect
+NSMutableData *resData;
 
+// クエリのエンコード
+- (NSString*)getQueryStringByDic:(NSDictionary*)dic
+{
+    NSArray*keys = [dic allKeys];
+    NSMutableArray*tmp=[NSMutableArray array];
+    for (NSString*key in keys) {
+        [tmp addObject:[NSString stringWithFormat:@"%@=%@",key,dic[key]]];
+    }
+    return [tmp componentsJoinedByString:@"&"];
+}
+
+- (void)fetchWithURL:(NSString*)urlStr withHandler:(void(^)(NSData *data, NSError *error))handler
+{
+    // 要求を準備
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    // 非同期通信による取得開始
+    GTMHTTPFetcher *fetcher = [GTMHTTPFetcher fetcherWithRequest:request];
+    [fetcher beginFetchWithCompletionHandler:handler];
+}
+
+- (void)fetchMembers
+{
+    NSString *url = @"http://okoshiya.xterminal.me/voicetable.php";
+    [self fetchWithURL:url withHandler:^(NSData *data, NSError *error) {
+        NSError *jsonerror = nil;
+        members = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
+        NSLog(@"%@", members);
+        [self.grouptable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    }];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +76,14 @@
             scView.bounces = NO;
         }
     }
+    
+    members = [NSArray array];
+    checkedRow = -1;
+    
+    NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(fetchMembers) userInfo:nil repeats:YES];
+    [tm fire];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,9 +97,10 @@
 }
 //行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    NSLog(@"%@", members);
+    NSLog(@"array.count = %d", (int)members.count);
+    return members.count;
 }
-
 
 //headerのサイズ
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -105,17 +147,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:cellIdentifier];
     }
+    
+    NSDictionary* member = members[indexPath.row];
     //表示するセル
-    NSString *title = [NSString stringWithFormat:@"セクション%dの%d行目", indexPath.section, indexPath.row];
+    NSString *title = [NSString stringWithFormat:@"%@",member[@"id"]];
     //セルのラベルに設定する
     cell.textLabel.text = title;
     //文字の色
     cell.textLabel.textColor = [UIColor darkGrayColor];
     
-    //起きたらme.png寝てたらclose.pngを表示
-    UIImage *image = [UIImage imageNamed:@"close.png" ];
-    cell.imageView.image = image;
+    if (indexPath.row == checkedRow) cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    else cell.accessoryType = UITableViewCellAccessoryNone;
     
+    //起きたらme.png寝てたらclose.pngを表示
+    if ([member[@"wakeupflg"] intValue] == 0){
+        UIImage *image = [UIImage imageNamed:@"close.png" ];
+        cell.imageView.image = image;
+    } else {
+        UIImage *image = [UIImage imageNamed:@"me.png" ];
+        cell.imageView.image = image;
+    }
     
     //文字サイズ
     cell.textLabel.font = [UIFont systemFontOfSize:20];
@@ -128,19 +179,23 @@
 
 //選択された時に行う処理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"セクション%dの%d行目", indexPath.section, indexPath.row);
-    // 選択されたセルを取得
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    // セルのアクセサリにチェックマークを指定
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    NSLog(@"セクション%dの%d行目", (int)indexPath.section, (int)indexPath.row);
     
+//    // 選択されたセルを取得
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    // セルのアクセサリにチェックマークを指定
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    checkedRow = (int)indexPath.row;
+    [self.grouptable reloadData];
 }
+
 // セルの選択がはずれた時に呼び出される
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // 選択がはずれたセルを取得
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    // セルのアクセサリを解除する（チェックマークを外す）
-    cell.accessoryType = UITableViewCellAccessoryNone;
+//    // 選択がはずれたセルを取得
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    // セルのアクセサリを解除する（チェックマークを外す）
+//    cell.accessoryType = UITableViewCellAccessoryNone;
+//    [self.grouptable reloadData];
 }
 
 //ステータスバーを非表示

@@ -20,6 +20,11 @@
 		4219212119A43BAB00429684 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219212019A43BAB00429684 /* Parse.framework */; };
 		4219212219A447F300429684 /* postViewController.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 4219210019A2DEA700429684 /* postViewController.m */; };
 		4219212419A51FB200429684 /* OnseiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212319A51FB200429684 /* OnseiViewController.m */; };
+		4219212F19A62A8500429684 /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212719A62A8500429684 /* GTMHTTPFetcher.m */; };
+		4219213019A62A8500429684 /* GTMOAuthAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212919A62A8500429684 /* GTMOAuthAuthentication.m */; };
+		4219213119A62A8500429684 /* GTMOAuthSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212B19A62A8500429684 /* GTMOAuthSignIn.m */; };
+		4219213219A62A8500429684 /* GTMOAuthViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219212D19A62A8500429684 /* GTMOAuthViewControllerTouch.m */; };
+		4219213319A62A8500429684 /* GTMOAuthViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4219212E19A62A8500429684 /* GTMOAuthViewTouch.xib */; };
 		7E5487A0199A03D800B7A2FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E54879F199A03D800B7A2FE /* Foundation.framework */; };
 		7E5487A2199A03D800B7A2FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */; };
 		7E5487A4199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
@@ -56,7 +61,7 @@
 		7EE5A5B519A34C6300C10910 /* DCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5B019A34C6300C10910 /* DCLabel.m */; };
 		7EE5A5B619A34C6300C10910 /* DCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5A5B219A34C6300C10910 /* DCUtil.m */; };
 		7EE5A5BC19A365CB00C10910 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5A5BB19A365CB00C10910 /* alarm.mp3 */; };
-		840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B3B7519A1E18000236DF9 /* VoiceSelect.m */; };
+		840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 840B3B7519A1E18000236DF9 /* VoiceSelect.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84260DE019A3410800F78BCA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DDF19A3410800F78BCA /* CFNetwork.framework */; };
 		84260DE219A3411F00F78BCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DE119A3411F00F78BCA /* CoreLocation.framework */; };
 		84260DE419A3412A00F78BCA /* libdl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84260DE319A3412A00F78BCA /* libdl.dylib */; };
@@ -91,6 +96,15 @@
 		4219211919A32C0300429684 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4219212019A43BAB00429684 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4219212319A51FB200429684 /* OnseiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnseiViewController.m; path = images/OnseiViewController.m; sourceTree = "<group>"; };
+		4219212619A62A8500429684 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
+		4219212719A62A8500429684 /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		4219212819A62A8500429684 /* GTMOAuthAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthAuthentication.h; sourceTree = "<group>"; };
+		4219212919A62A8500429684 /* GTMOAuthAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthAuthentication.m; sourceTree = "<group>"; };
+		4219212A19A62A8500429684 /* GTMOAuthSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthSignIn.h; sourceTree = "<group>"; };
+		4219212B19A62A8500429684 /* GTMOAuthSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthSignIn.m; sourceTree = "<group>"; };
+		4219212C19A62A8500429684 /* GTMOAuthViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthViewControllerTouch.h; sourceTree = "<group>"; };
+		4219212D19A62A8500429684 /* GTMOAuthViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuthViewControllerTouch.m; sourceTree = "<group>"; };
+		4219212E19A62A8500429684 /* GTMOAuthViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTMOAuthViewTouch.xib; sourceTree = "<group>"; };
 		7E54879C199A03D800B7A2FE /* okoshiya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okoshiya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E54879F199A03D800B7A2FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E5487A1199A03D800B7A2FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,6 +212,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4219212519A62A6500429684 /* GTM */ = {
+			isa = PBXGroup;
+			children = (
+				4219212619A62A8500429684 /* GTMHTTPFetcher.h */,
+				4219212719A62A8500429684 /* GTMHTTPFetcher.m */,
+				4219212819A62A8500429684 /* GTMOAuthAuthentication.h */,
+				4219212919A62A8500429684 /* GTMOAuthAuthentication.m */,
+				4219212A19A62A8500429684 /* GTMOAuthSignIn.h */,
+				4219212B19A62A8500429684 /* GTMOAuthSignIn.m */,
+				4219212C19A62A8500429684 /* GTMOAuthViewControllerTouch.h */,
+				4219212D19A62A8500429684 /* GTMOAuthViewControllerTouch.m */,
+				4219212E19A62A8500429684 /* GTMOAuthViewTouch.xib */,
+			);
+			name = GTM;
+			sourceTree = "<group>";
+		};
 		7E548793199A03D800B7A2FE = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				84260E3119A43BC400F78BCA /* VoiceRecieveViewController.h */,
+				4219212519A62A6500429684 /* GTM */,
 				84260E3219A43BC400F78BCA /* VoiceRecieveViewController.m */,
 				7EE5A5BA19A365CB00C10910 /* audio */,
 				7EE5A5AA19A34C6300C10910 /* DCLibrary */,
@@ -429,6 +460,7 @@
 				7E5487B8199A03D800B7A2FE /* Images.xcassets in Resources */,
 				7EBAC3CE19A4731C00B83BC9 /* setalarm.png in Resources */,
 				7EE5A58B19A2DED000C10910 /* hukidashi1.png in Resources */,
+				4219213319A62A8500429684 /* GTMOAuthViewTouch.xib in Resources */,
 				7E5487AA199A03D800B7A2FE /* InfoPlist.strings in Resources */,
 				7E5487B3199A03D800B7A2FE /* Main.storyboard in Resources */,
 				7EE5A59119A2DED000C10910 /* recordbuttonon.png in Resources */,
@@ -458,12 +490,16 @@
 				4219210119A2DEA700429684 /* postViewController.m in Sources */,
 				7EE5A5B319A34C6300C10910 /* DCAudioPlayer.m in Sources */,
 				7EE5A5B619A34C6300C10910 /* DCUtil.m in Sources */,
+				4219213219A62A8500429684 /* GTMOAuthViewControllerTouch.m in Sources */,
+				4219213119A62A8500429684 /* GTMOAuthSignIn.m in Sources */,
 				7EE5A5B519A34C6300C10910 /* DCLabel.m in Sources */,
 				7E5487B0199A03D800B7A2FE /* AppDelegate.m in Sources */,
 				7EE5A5A919A33E5F00C10910 /* AlarmViewController.m in Sources */,
 				8484D6FD19A1B7D900E210EE /* myViewController.m in Sources */,
+				4219212F19A62A8500429684 /* GTMHTTPFetcher.m in Sources */,
 				7E5487AC199A03D800B7A2FE /* main.m in Sources */,
 				7EE5A5B419A34C6300C10910 /* DCButton.m in Sources */,
+				4219213019A62A8500429684 /* GTMOAuthAuthentication.m in Sources */,
 				4219212419A51FB200429684 /* OnseiViewController.m in Sources */,
 				7EE5A59619A2ECA300C10910 /* UserResisterViewController.m in Sources */,
 				840B3B7619A1E18000236DF9 /* VoiceSelect.m in Sources */,

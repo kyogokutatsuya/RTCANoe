@@ -521,7 +521,7 @@ typedef enum alarmEventType : NSUInteger {
     NSString *query = [NSString stringWithFormat:@"DeviceToken=%@", token];
     NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *url = @"http://okoshiya.xterminal.me";
+    NSString *url = @"http://okoshiya.xterminal.me/wakeup.php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ";
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
