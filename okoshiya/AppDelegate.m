@@ -75,17 +75,28 @@
         
     }
     
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    
     return YES;
 }
-/*
+
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    NSLog(@"fetchjfsjslejgesrferjsesgnvesrjgerjjergiljesrlgfsdnglsdfgjldsfjgj");
-    completionHandler(UIBackgroundFetchResultNewData);
+    //NSLog(@"fetchjfsjslejgesrferjsesgnvesrjgerjjergiljesrlgfsdnglsdfgjldsfjgj");
+    //completionHandler(UIBackgroundFetchResultNewData);
     
+    // 送信するリクエストを作成する。
+    NSURL *url = [NSURL URLWithString:@"http://okoshiya.xterminal.me/okosu.php"];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    // リクエストを送信する。
+    NSError *error;
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
 }
- */
+
 
 
 //ロック&スリープ禁止の切り替え
