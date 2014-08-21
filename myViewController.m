@@ -186,32 +186,9 @@ NSString *settime;
 //-------------------------------------------
 -(void)voicetodatabase{
     
-    // PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-  //  NSString *mytoken = [currentInstallation deviceToken];
-    
-//    //userDefaults更新
-//    [userDefaults setObject:token forKey:@"Token"];
-//    [userDefaults synchronize];
-    
-    
-    
-   // NSString *hoge = self.recordvoice;
-    
-//    [userDefaults objectForKey:@"UserID"];
-    //NSString *token = [userDefaults objectForKey:@"UserID"];
-    
-    
-    //voiceにrecordvoiceを設定する
-  // [[PFInstallation currentInstallation] addUniqueObject:self.recordvoice forKey:@"voice"];
-    
-//    [currentInstallation ]
-   // PFObject *targettaken = [PFObject objectWithoutDataWithClassName:mytoken objectId:token];
-    
-    //PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
     
     PFObject *voice = [PFObject objectWithClassName:@"voice"];
    
-    //voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
    
     PFFile *voicefile = [PFFile fileWithData:self.recordvoice];
     
@@ -221,15 +198,12 @@ NSString *settime;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (objects.count == 0) {
-            
-           // [query getObjectInBackgroundWithId:@"userid" block:^(PFObject *voice, NSError *error) {
                 voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
                 voice[@"voicedata"] = voicefile;
-                
-           // }];
-        
+            
         }
         
+        //クエリ重複
         for (PFObject *object in objects) {
             [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded)NSLog(@"delete ");
@@ -237,14 +211,11 @@ NSString *settime;
             }];
         }
         
-       // [query de]
-        voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+            voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
             voice[@"voicedata"] = voicefile;
-//            [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if(succeeded) NSLog(@"seikou ok");
-//                else  NSLog(@"%@",error);
-//            }];
+
         
+        //保存する
         [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(succeeded) NSLog(@"seikou ");
             else  NSLog(@"%@",error);
@@ -252,15 +223,6 @@ NSString *settime;
         
     }];
     
-    
-    
-   // [PFInstallation currentInstallation]
-    //保存する
-//    [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if(succeeded) NSLog(@"seikou ");
-//        else  NSLog(@"%@",error);
-//    }];
-
     
 }
 
