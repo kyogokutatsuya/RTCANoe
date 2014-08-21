@@ -168,7 +168,7 @@
     // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
     PFQuery *query = [PFInstallation query];
     //TODO: 変更
-    [query whereKey:@"channels" equalTo:@"tjadm"];
+    [query whereKey:@"channels" equalTo:@"kyou"];
     
     
     

@@ -210,8 +210,8 @@ NSString *settime;
     //PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
     
     PFObject *voice = [PFObject objectWithClassName:@"voice"];
-    voice[@"userid"] = [userDefaults objectForKey:@"dsk_id"];
-    voice[@"voicedata"] = self.recordvoice;
+    voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+    voice[@"voicedata"] = [PFFile fileWithData:self.recordvoice];
     
     
    // [PFInstallation currentInstallation]
