@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     //[userDefaults setInteger:0 forKey:@"flag"];
     NSString *UserID = [userDefaults objectForKey:@"UserID"];
     NSLog(@"key %@",UserID);
