@@ -47,14 +47,14 @@ NSString *settime;
     self.myPicker.delegate = self;
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
-    NSLog(@"%@", recordvoice);
+   // NSLog(@"recive voice is : %@",self.recordvoice );
     //settime = @"7:00";
     //NSLog(@"%ld",(long)settime);
     
     //debug用
     //[self MQDumpNSData:recordvoice];//onseiviewcontrollerからrecordvoiceが届いてるか確認のため
     
-    
+    [self voicetodatabase];
     
 }
 
@@ -68,7 +68,7 @@ NSString *settime;
         AlarmViewController *alarmviewcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
         alarmviewcontroller.alarmsettime = settime;
-        alarmviewcontroller.recordvoice = self.recordvoice;
+       // alarmviewcontroller.recordvoice = self.recordvoice;
     }
 }
 
@@ -178,5 +178,52 @@ NSString *settime;
     
     
 }
+
+
+
+//-------------------------------------------
+//parseのデータベースに音声を登録
+//-------------------------------------------
+-(void)voicetodatabase{
+    
+     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+  //  NSString *mytoken = [currentInstallation deviceToken];
+    
+//    //userDefaults更新
+//    [userDefaults setObject:token forKey:@"Token"];
+//    [userDefaults synchronize];
+    
+    
+    
+   // NSString *hoge = self.recordvoice;
+    
+//    [userDefaults objectForKey:@"UserID"];
+    //NSString *token = [userDefaults objectForKey:@"UserID"];
+    
+    
+    //voiceにrecordvoiceを設定する
+  // [[PFInstallation currentInstallation] addUniqueObject:self.recordvoice forKey:@"voice"];
+    
+//    [currentInstallation ]
+   // PFObject *targettaken = [PFObject objectWithoutDataWithClassName:mytoken objectId:token];
+    
+    PFFile *voicefile = [PFFile fileWithName:@"voicefile.txt" data:self.recordvoice];
+    
+    PFObject *voice = [PFObject objectWithClassName:@"voice"];
+    voice[@"userid"] = [userDefaults objectForKey:@"UserID"];
+    voice[@"voicedata"] = voicefile;
+    
+    
+   // [PFInstallation currentInstallation]
+    //保存する
+    [voice saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) NSLog(@"seikou ");
+        else  NSLog(@"%@",error);
+    }];
+
+    
+}
+
+
 
 @end

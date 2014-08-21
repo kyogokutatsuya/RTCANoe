@@ -73,6 +73,7 @@
     
     //userDefaults更新
     [userDefaults setObject:self.userid.text forKey:@"UserID"];
+    [userDefaults setInteger:1 forKey:@"flag"];
     [userDefaults synchronize];
     
     

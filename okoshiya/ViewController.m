@@ -26,6 +26,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *UserID = [userDefaults objectForKey:@"UserID"];
+    NSLog(@"key %@",UserID);
+    
+    if([userDefaults integerForKey:@"flag"] == 1){
+        goto already;
+    }
+    
+    [userDefaults setObject:@"nothing" forKey:@"UserID"];
+    [userDefaults synchronize];
+    
+    
+already:
+   
+
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
    //  AVAudioPlayer *audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
@@ -42,8 +58,9 @@
 //---------------------------------------
     
     //最初みんなで起きるモードに行けないようにする用
-    //self.view_id_ok.enabled = NO;
-    
+    if([UserID isEqualToString:@"nothing"]){
+    self.coButton.enabled = NO;
+    }
     
 //    
 //    NSDate *fireDate = [[NSDate alloc]initWithTimeIntervalSinceNow:5];
