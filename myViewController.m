@@ -153,7 +153,6 @@ NSString *settime;
     //NSString *time;
     settime = time_list[self.ROW];
     NSLog(@"settimelog : %@",settime);
-    [self performSegueWithIdentifier:@"myviewtoalarm" sender:self];
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
@@ -176,6 +175,7 @@ NSString *settime;
     NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
     NSLog(@"%@", string);
     
+    [self performSegueWithIdentifier:@"myviewtoalarm" sender:self];
     
 }
 
