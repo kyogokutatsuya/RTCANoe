@@ -175,6 +175,30 @@
 }
 
 
+-(void)playVoice:(PFFile*)file{
+    
+    
+    [file getDataInBackgroundWithBlock:^(NSData *recivedata, NSError *error) {
+        
+        if (!error) {
+            
+            AVAudioPlayer *RaudioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
+            [RaudioPlayer play];
+            RaudioPlayer = [[DCAudioPlayer alloc]initWithData:recivedata error:nil];
+            
+            // RaudioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+            [RaudioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+            //[audioPlayer prepareToPlay];
+            [RaudioPlayer play];
+            
+        }
+        
+    }];
+    
+    
+}
+
+
 
 
 //backgroundにてpushきたら鳴るようにする
@@ -188,6 +212,14 @@
     viewController = [storyboard instantiateViewControllerWithIdentifier:@"alarm"];
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
+//    //ファースト画面が変更
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    UIViewController *viewController;
+//    viewController = [storyboard instantiateViewControllerWithIdentifier:@"alarm"];
+//    self.window.rootViewController = viewController;
+//    [self.window makeKeyAndVisible];
     
      */
     
@@ -197,23 +229,44 @@
     NSString *pushedID = [userInfo objectForKey:@"userid"];
     
     
-    PFQuery *query = [PFQuery queryWithClassName:@"voice"];
+    //PFObject *obj = [PFObject objectWithClassName:@"voice"];
+    //NSString *userid = obj[@"userid"];
     
+    //voicedataはparseのDBのcolumn
+    //PFFile *DLdata = obj[@"voicedata"];
+    
+
+   // if()
+    
+   // PFQuery *query = [PFObject query];
+    //[query whereKey:@"userid" equalTo:pushedID];
+    
+    // NSData
+    //NSArray *girls = [query findObjects];
+    // NSLog(@"voice data %@",[voicefile getData]);
+    // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:[voicefile getData] error:nil];
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+    //[audioPlayer prepareToPlay];
+    NSDate *date = [NSDate date];
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:date];
+    [audioPlayer play];
+
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"voice"];
     [query whereKey:@"userid" equalTo:pushedID];
     
     
+    // __block PFFile *voicefile;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
         if(objects){
             NSLog(@" object[0] %@",objects[0]);
             PFObject *recievedObj = objects[0];
-            
-           PFFile * voicefile = recievedObj[@"voicedata"];
-            
+            PFFile * voicefile = recievedObj[@"voicedata"];
+            [audioPlayer pause];
             [self playVoice:voicefile];
-            
         }
-    
     }];
     
    // NSData
@@ -236,12 +289,12 @@
     
     
     //ここに、バックグラウンドで声がなるようにしたい
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
-    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
-    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-    //[audioPlayer prepareToPlay];
-    [audioPlayer play];
-    
+//    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
+//    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
+//    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
+//    //[audioPlayer prepareToPlay];
+//    [audioPlayer play];
+//    
     
     completionHandler(UIBackgroundFetchResultNewData);
     
@@ -249,27 +302,6 @@
     
 }
 
--(void)playVoice:(PFFile*)file{
-    
-    [file getDataInBackgroundWithBlock:^(NSData *recivedata, NSError *error) {
-        
-        if (!error) {
-            
-            AVAudioPlayer *RaudioPlayer = [[AVAudioPlayer alloc] initWithData:recivedata error:nil];
-            [RaudioPlayer play];
-            RaudioPlayer = [[DCAudioPlayer alloc]initWithData:recivedata error:nil];
-            
-           // RaudioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
-            [RaudioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-            //[audioPlayer prepareToPlay];
-            [RaudioPlayer play];
-            
-        }
-        
-    }];
-    
-
-}
 
 //------------------------
 //parse から　json　でこれを送ると鳴るはず
@@ -285,16 +317,12 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     
-    /*
+    
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
     [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-    //[audioPlayer prepareToPlay];
+   // [audioPlayer prepareToPlay];
     [audioPlayer play];
-    
-     */
-    
-    
     NSLog(@"userinfo %@",userInfo);
     NSString *pushedID = [userInfo objectForKey:@"userid"];
     
@@ -303,6 +331,10 @@
 //    PFObject *userid = [PFObject objectWithClassName:@"userid"];
 //    
 //    //voicedataはparseのDBのcolumn
+    PFObject *obj = [PFObject objectWithClassName:@"voice"];
+    PFObject *userid = [PFObject objectWithClassName:@"userid"];
+    
+    //voicedataはparseのDBのcolumn
     //PFFile *DLdata = obj[@"voicedata"];
     
     
@@ -313,24 +345,22 @@
     //[query whereKey:@"userid" equalTo:pushedID];
     
     PFQuery *query = [PFQuery queryWithClassName:@"voice"];
-    
     [query whereKey:@"userid" equalTo:pushedID];
     
     //__block PFFile *voicefile;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
         if(objects){
             NSLog(@"%@",objects[0]);
             PFObject *recievedObj = objects[0];
            // voicefile = recievedObj[@"voicedata"];
             PFFile * voicefile = recievedObj[@"voicedata"];
             
+            voicefile = recievedObj[@"voicedata"];
+            [audioPlayer pause];
             [self playVoice:voicefile];
-            
-        }
-        
-    }];
+            }
+        }];
 
     
     
