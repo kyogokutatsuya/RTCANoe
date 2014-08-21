@@ -230,11 +230,12 @@ NSMutableData *resData;
    // NSLog(@"data bytes : %@kyogokutatsuyara", self.recordvoice);
    // NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
     
+    NSLog(@"push送る前のかくにん　%@", [userDefaults objectForKey:@"UserID"]);
     PFPush *push = [[PFPush alloc]init];
     NSDictionary *dict = @{@"content-available":@"1",
                            
-                           @"userid":[[NSUserDefaults standardUserDefaults]objectForKey:@"UserID"],
-                           @"alert":@"hello world"};
+                           @"userid":[userDefaults objectForKey:@"UserID"],
+                           @"alert":[userDefaults objectForKey:@"UserID"]};
     
     [push setQuery:query];
     [push setData:dict];

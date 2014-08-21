@@ -204,15 +204,7 @@
 //backgroundにてpushきたら鳴るようにする
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
-    /*
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *viewController;
-    viewController = [storyboard instantiateViewControllerWithIdentifier:@"alarm"];
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
-//    //ファースト画面が変更
+   //    //ファースト画面が変更
 //    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 //    
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -221,36 +213,18 @@
 //    self.window.rootViewController = viewController;
 //    [self.window makeKeyAndVisible];
     
-     */
     
     
     //userinfo よりpushされた相手のidをとってくる
     NSLog(@"userinfo %@",userInfo);
     NSString *pushedID = [userInfo objectForKey:@"userid"];
     
-    
-    //PFObject *obj = [PFObject objectWithClassName:@"voice"];
-    //NSString *userid = obj[@"userid"];
-    
-    //voicedataはparseのDBのcolumn
-    //PFFile *DLdata = obj[@"voicedata"];
-    
-
-   // if()
-    
-   // PFQuery *query = [PFObject query];
-    //[query whereKey:@"userid" equalTo:pushedID];
-    
-    // NSData
-    //NSArray *girls = [query findObjects];
-    // NSLog(@"voice data %@",[voicefile getData]);
-    // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:[voicefile getData] error:nil];
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
     audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
     [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
     //[audioPlayer prepareToPlay];
-    NSDate *date = [NSDate date];
-    [[NSUserDefaults standardUserDefaults] setObject:date forKey:date];
+  //  NSDate *date = [NSDate date];
+  //  [[NSUserDefaults standardUserDefaults] setObject:date forKey:date];
     [audioPlayer play];
 
     
@@ -264,37 +238,13 @@
             NSLog(@" object[0] %@",objects[0]);
             PFObject *recievedObj = objects[0];
             PFFile * voicefile = recievedObj[@"voicedata"];
+            voicefile = recievedObj[@"voicedata"];
             [audioPlayer pause];
             [self playVoice:voicefile];
         }
     }];
     
-   // NSData
-    //NSArray *girls = [query findObjects];
- 
-   
-    
-   // NSLog(@"voice data %@",[voicefile getData]);
-    
-    /*
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:[voicefile getData] error:nil];
-                                  
-                                  
-   // AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
-    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
-    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-    //[audioPlayer prepareToPlay];
-    [audioPlayer play];
-     */
-    
-    
-    //ここに、バックグラウンドで声がなるようにしたい
-//    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:@"alarm.mp3"] error:nil];
-//    audioPlayer = [[DCAudioPlayer alloc] initWithAudio:ALARM_NAME ext:ALARM_FILE_EXT isUseDelegate:NO];
-//    [audioPlayer setNumberOfLoops:ALARM_PLAY_INFINITE];
-//    //[audioPlayer prepareToPlay];
-//    [audioPlayer play];
-//    
+  
     
     completionHandler(UIBackgroundFetchResultNewData);
     
@@ -327,22 +277,11 @@
     NSString *pushedID = [userInfo objectForKey:@"userid"];
     
     
-//    PFObject *obj = [PFObject objectWithClassName:@"voice"];
-//    PFObject *userid = [PFObject objectWithClassName:@"userid"];
-//    
-//    //voicedataはparseのDBのcolumn
-    PFObject *obj = [PFObject objectWithClassName:@"voice"];
-    PFObject *userid = [PFObject objectWithClassName:@"userid"];
-    
     //voicedataはparseのDBのcolumn
-    //PFFile *DLdata = obj[@"voicedata"];
+   // PFObject *obj = [PFObject objectWithClassName:@"voice"];
+    //PFObject *userid = [PFObject objectWithClassName:@"userid"];
     
-    
-    // if()
-    
-    
-    // PFQuery *query = [PFObject query];
-    //[query whereKey:@"userid" equalTo:pushedID];
+   
     
     PFQuery *query = [PFQuery queryWithClassName:@"voice"];
     [query whereKey:@"userid" equalTo:pushedID];
@@ -361,11 +300,7 @@
             [self playVoice:voicefile];
             }
         }];
-
-    
-    
-    
-
+;
 }
 
 @end
