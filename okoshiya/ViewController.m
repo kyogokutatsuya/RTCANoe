@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     
+    //[userDefaults setInteger:0 forKey:@"flag"];
     NSString *UserID = [userDefaults objectForKey:@"UserID"];
     NSLog(@"key %@",UserID);
     
@@ -40,6 +41,7 @@
     
 already:
    
+    
 
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -62,6 +64,10 @@ already:
     self.coButton.enabled = NO;
     }
     
+    
+    if ([userDefaults integerForKey:@"flag"] == 1) {
+        self.view_id_ok.enabled = NO;
+    }
 //    
 //    NSDate *fireDate = [[NSDate alloc]initWithTimeIntervalSinceNow:5];
 //    
