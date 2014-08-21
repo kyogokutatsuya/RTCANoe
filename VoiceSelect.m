@@ -161,6 +161,10 @@
 
 - (IBAction)okosubutton:(id)sender {
     
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *token = [currentInstallation deviceToken];
+    
     // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
     PFQuery *query = [PFInstallation query];
     //TODO: 変更
@@ -169,11 +173,11 @@
     
     
    // NSLog(@"data bytes : %@kyogokutatsuyara", self.recordvoice);
-    NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
+   // NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
     
     PFPush *push = [[PFPush alloc]init];
-    NSDictionary *dict = @{@"content-available":@"1",
-                           @"voice":hoge,
+    NSDictionary *dict = @{@"content-available":token,
+                           //@"content-available":hoge,
                            @"alert":@"hello world"};
     [push setQuery:query];
     [push setData:dict];
