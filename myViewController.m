@@ -47,7 +47,7 @@ NSString *settime;
     self.myPicker.delegate = self;
     //データを共有します
     time_list =@[ @"6:00",@"6:30",@"7:00",@"7:30",@"8:00"];
-    
+    NSLog(@"%@", recordvoice);
     //settime = @"7:00";
     //NSLog(@"%ld",(long)settime);
     
@@ -68,6 +68,7 @@ NSString *settime;
         AlarmViewController *alarmviewcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
         alarmviewcontroller.alarmsettime = settime;
+        alarmviewcontroller.recordvoice = self.recordvoice;
     }
 }
 

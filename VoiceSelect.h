@@ -13,5 +13,5 @@
 - (IBAction)okosubutton:(id)sender;
 @property (retain ,nonatomic)NSString *timegroup;
 @property (retain, nonatomic) IBOutlet UITableView *grouptable;
-
+@property(retain, nonatomic)NSData *recordvoice;
 @end
