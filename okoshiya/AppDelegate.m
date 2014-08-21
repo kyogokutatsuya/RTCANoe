@@ -153,8 +153,8 @@
 //DeviceToken受信メソッド
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-        NSString *user_id = [userDefaults objectForKey:@"UserID"];
-        NSLog(@"user id : %@", user_id);
+    NSString *user_id = [userDefaults objectForKey:@"UserID"];
+    NSLog(@"user id : %@", user_id);
     
     
     
@@ -170,6 +170,8 @@
     
     //保存する
     [currentInstallation saveInBackground];
+        
+        
 }
 
 
