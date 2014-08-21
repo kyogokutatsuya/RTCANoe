@@ -493,6 +493,7 @@ typedef enum alarmEventType : NSUInteger {
         VoiceSelect *voiceselectcontroller = [segue destinationViewController];
         //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
         voiceselectcontroller.timegroup = self.alarmsettime;
+        voiceselectcontroller.recordvoice = self.recordvoice;
     }
     
 }

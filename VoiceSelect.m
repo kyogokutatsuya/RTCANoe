@@ -7,6 +7,7 @@
 //
 
 #import "VoiceSelect.h"
+#import "AlarmViewController.h"
 
 @interface VoiceSelect ()<UITableViewDataSource, UITableViewDelegate>
 @property NSString *groupstr;
@@ -142,7 +143,6 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-
 //ステータスバーを非表示
 -(BOOL)prefersStatusBarHidden{
     return YES;
@@ -164,19 +164,25 @@
     // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
     PFQuery *query = [PFInstallation query];
     //TODO: 変更
-    [query whereKey:@"channels" equalTo:@"global"];
+    [query whereKey:@"channels" equalTo:@"tjadm"];
     
+    
+    
+   // NSLog(@"data bytes : %@kyogokutatsuyara", self.recordvoice);
+    NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
     
     PFPush *push = [[PFPush alloc]init];
     NSDictionary *dict = @{@"content-available":@"1",
-                           @"voice":@"self.recordvoice",
+                           @"voice":hoge,
                            @"alert":@"hello world"};
     [push setQuery:query];
     [push setData:dict];
     
+    
     [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
             NSLog(@"成功");
+        
         }else{
             NSLog(@"失敗　%@",error);
         }

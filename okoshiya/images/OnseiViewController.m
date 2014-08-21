@@ -104,7 +104,7 @@ NSData *audioData;
     [recorder recordForDuration: 5.0];//５秒で録音とめる
     [recorder record];
     
-    
+    /*
     //cafをNSDataに変換（たぶん）
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL success = [fileManager fileExistsAtPath:filePath];
@@ -112,7 +112,7 @@ NSData *audioData;
         audioData = [[NSData alloc] initWithContentsOfFile:filePath];
         [self MQDumpNSData:audioData];
     }
-
+     */
     
     
 }
@@ -186,6 +186,18 @@ NSData *audioData;
     {
         [recorder stop];
         self.recorder = nil;
+        
+        //cafをNSDataに変換（たぶん）
+        // File Path
+        NSString *dir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        NSString *filePath = [dir stringByAppendingPathComponent:@"test.caf"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL success = [fileManager fileExistsAtPath:filePath];
+        if(success) {
+            audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+            NSLog(@"%@",audioData);
+            [self MQDumpNSData:audioData];
+        }
     }
 }
 
@@ -250,6 +262,7 @@ NSData *audioData;
 //--------------------------------------------
 - (IBAction)onseitomy:(id)sender {
     [self performSegueWithIdentifier:@"OnseitoMyview" sender:self];
+    
 }
 
 @end
