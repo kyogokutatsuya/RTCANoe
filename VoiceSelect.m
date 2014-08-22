@@ -11,6 +11,7 @@
 
 @interface VoiceSelect ()<UITableViewDataSource, UITableViewDelegate>
 @property NSString *groupstr;
+@property NSDictionary* member;
 
 @end
 
@@ -63,6 +64,9 @@ NSMutableData *resData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+      
+    
     // Do any additional setup after loading the view.
     self.groupstr = [self.timegroup stringByAppendingString:@" GROUP"];
     
@@ -148,9 +152,9 @@ NSMutableData *resData;
                                       reuseIdentifier:cellIdentifier];
     }
     
-    NSDictionary* member = members[indexPath.row];
+    self.member = members[indexPath.row];
     //表示するセル
-    NSString *title = [NSString stringWithFormat:@"%@",member[@"id"]];
+    NSString *title = [NSString stringWithFormat:@"%@",self.member[@"id"]];
     //セルのラベルに設定する
     cell.textLabel.text = title;
     //文字の色
@@ -160,7 +164,7 @@ NSMutableData *resData;
     else cell.accessoryType = UITableViewCellAccessoryNone;
     
     //起きたらme.png寝てたらclose.pngを表示
-    if ([member[@"wakeupflg"] intValue] == 0){
+    if ([self.member[@"wakeupflg"] intValue] == 0){
         UIImage *image = [UIImage imageNamed:@"close.png" ];
         cell.imageView.image = image;
     } else {
@@ -219,11 +223,12 @@ NSMutableData *resData;
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
+
     
     // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
     PFQuery *query = [PFInstallation query];
     //TODO: 変更
-    [query whereKey:@"channels" equalTo:@"kyou"];
+    [query whereKey:@"channels" equalTo:self.member[@"id"]];
     
     
     
