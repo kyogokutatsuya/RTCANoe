@@ -172,9 +172,9 @@ NSMutableData *resData;
                                       reuseIdentifier:cellIdentifier];
     }
     
-    self.member = members[indexPath.row];
+    NSDictionary* member = members[indexPath.row];
     //表示するセル
-    NSString *title = [NSString stringWithFormat:@"%@",self.member[@"id"]];
+    NSString *title = [NSString stringWithFormat:@"%@",member[@"id"]];
     //セルのラベルに設定する
     cell.textLabel.text = title;
     //文字の色
@@ -184,7 +184,7 @@ NSMutableData *resData;
     else cell.accessoryType = UITableViewCellAccessoryNone;
     
     //起きたらme.png寝てたらclose.pngを表示
-    if ([self.member[@"wakeupflg"] intValue] == 0){
+    if ([member[@"wakeupflg"] intValue] == 0){
         UIImage *image = [UIImage imageNamed:@"close.png" ];
         cell.imageView.image = image;
     } else {
@@ -239,7 +239,8 @@ NSMutableData *resData;
 */
 
 - (IBAction)okosubutton:(id)sender {
-    
+    NSLog(@"checked Row %d", checkedRow);
+    if (checkedRow == -1) return;
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
@@ -248,13 +249,14 @@ NSMutableData *resData;
     // [PFPush sendPushMessageToChannelInBackground:@"global" withMessage:@"Hello World!"];
     PFQuery *query = [PFInstallation query];
     //TODO: 変更
-    [query whereKey:@"channels" equalTo:self.member[@"id"]];
+    NSDictionary* member = members[checkedRow];
+    [query whereKey:@"channels" equalTo:member[@"id"]];
     
     
     
    // NSLog(@"data bytes : %@kyogokutatsuyara", self.recordvoice);
    // NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
-    if ([self.member[@"wakeupflg"] intValue] == 0){
+    if ([member[@"wakeupflg"] intValue] == 0){
     NSLog(@"push送る前のかくにん　%@", [userDefaults objectForKey:@"UserID"]);
     PFPush *push = [[PFPush alloc]init];
     NSDictionary *dict = @{@"content-available":@"1",
