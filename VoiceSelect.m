@@ -41,10 +41,30 @@ NSMutableData *resData;
     [fetcher beginFetchWithCompletionHandler:handler];
 }
 
+- (void)requestPost:(NSString*)urlStr withParam:(NSDictionary*)param handler:(void(^)(NSData *data, NSError *error))handler
+{
+    // 要求を準備
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    NSString *paramStr = [self getQueryStringByDic:param];
+    [request setHTTPBody:[paramStr dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // 非同期通信による取得開始
+    GTMHTTPFetcher *fetcher = [GTMHTTPFetcher fetcherWithRequest:request];
+    [fetcher beginFetchWithCompletionHandler:handler];
+    
+}
+
 - (void)fetchMembers
 {
     NSString *url = @"http://okoshiya.xterminal.me/voicetable.php";
-    [self fetchWithURL:url withHandler:^(NSData *data, NSError *error) {
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *token = [currentInstallation deviceToken];
+    
+    NSDictionary *param = @{@"DeviceToken": token};
+    [self requestPost:url withParam:param handler:^(NSData *data, NSError *error) {
         NSError *jsonerror = nil;
         members = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonerror];
         NSLog(@"%@", members);
