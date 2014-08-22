@@ -291,6 +291,8 @@ typedef enum alarmEventType : NSUInteger {
 //--------------------------------------------
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
     //Segueの特定
     if ( [[segue identifier] isEqualToString:@"alarmtovoice"] ) {
         VoiceSelect *voiceselectcontroller = [segue destinationViewController];
@@ -298,6 +300,7 @@ typedef enum alarmEventType : NSUInteger {
         voiceselectcontroller.timegroup = self.alarmsettime;
         voiceselectcontroller.recordvoice = self.recordvoice;
     }
+
     
 }
 
@@ -315,16 +318,13 @@ typedef enum alarmEventType : NSUInteger {
     //アラームとめる
      [self stopAlarm];
     
-//    NSString *user_id = [userDefaults objectForKey:@"UserID"];
-//    NSLog(@"user id : %@", user_id);
-    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     NSString *token = [currentInstallation deviceToken];
     
-    NSString *query = [NSString stringWithFormat:@"DeviceToken=%@", token];
+    NSString *query = [NSString stringWithFormat:@"DeviceToken=%@",token];
     NSData *queryData = [query dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *url = @"http://okoshiya.xterminal.me/wakeup.php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ";
+    NSString *url = @"http://okoshiya.xterminal.me/wakeup.php";
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -338,13 +338,17 @@ typedef enum alarmEventType : NSUInteger {
                                                        error:&error];
     NSString *string = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
     NSLog(@"%@", string);
+    
 
     //つぎのコントローラーいく！
     [self performSegueWithIdentifier:@"alarmtovoice" sender:self];
     
     
-    
+
+
 }
+
+
 
 
 
