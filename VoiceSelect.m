@@ -234,7 +234,7 @@ NSMutableData *resData;
     
    // NSLog(@"data bytes : %@kyogokutatsuyara", self.recordvoice);
    // NSString *hoge = [self.recordvoice base64EncodedStringWithOptions:kNilOptions];
-    
+    if ([self.member[@"wakeupflg"] intValue] == 0){
     NSLog(@"push送る前のかくにん　%@", [userDefaults objectForKey:@"UserID"]);
     PFPush *push = [[PFPush alloc]init];
     NSDictionary *dict = @{@"content-available":@"1",
@@ -254,6 +254,7 @@ NSMutableData *resData;
             NSLog(@"失敗　%@",error);
         }
     } ];
+    }
 }
 @end
 /*- (void)dealloc {
