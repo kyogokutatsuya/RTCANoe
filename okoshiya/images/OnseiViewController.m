@@ -33,6 +33,8 @@ NSData *audioData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.next.enabled = NO;
+    self.playButton.enabled = NO;
     // Do any additional setup after loading the view.
     [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(checkrecording:) userInfo:nil repeats:YES];
     //1.5秒ごとにcheckrecordingを実行を繰りかえす
@@ -105,7 +107,7 @@ NSData *audioData;
     [recorder peakPowerForChannel:0];
     [recorder recordForDuration: 3.0];//3秒で録音とめる
     [recorder record];
-    
+    self.playButton.enabled = YES;
     /*
     //cafをNSDataに変換（たぶん）
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -175,7 +177,7 @@ NSData *audioData;
         self.label.text = @"「再生中...」";
     }
     else{
-        self.label.text = @"「 」";
+        self.label.text = @"  ";
         [self.recordButton setImage:[UIImage imageNamed:@"recordbutton.png"]
                            forState:UIControlStateNormal];
     }
@@ -232,6 +234,7 @@ NSData *audioData;
         [self.player prepareToPlay];
         self.player.volume = 5.0;
         [self.player play];
+        self.next.enabled = YES;
     }
 }
 
@@ -290,4 +293,8 @@ NSData *audioData;
 
 
 
+- (void)dealloc {
+    [_next release];
+    [super dealloc];
+}
 @end

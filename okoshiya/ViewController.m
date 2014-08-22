@@ -26,7 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //ユーザーidの初期化にはコメントアウトをはずしrunして
+    //またコメントアウトしてrunする
     //[userDefaults setInteger:0 forKey:@"flag"];
+    
     NSString *UserID = [userDefaults objectForKey:@"UserID"];
     NSLog(@"key %@",UserID);
     
@@ -34,6 +37,10 @@
         goto already;
     }
     
+     //アラート表示
+    [DCUtil showAlert:nil message:ALARM_MESSAGE
+    cancelButtonTitle:nil otherButtonTitles:@"OK"];
+
     [userDefaults setObject:@"nothing" forKey:@"UserID"];
     [userDefaults synchronize];
     

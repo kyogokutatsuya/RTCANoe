@@ -11,6 +11,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "DCAudioPlayer.h"
 #import <AVFoundation/AVAudioPlayer.h>
+#import "DCUtil.h"
+
+#define ALARM_MESSAGE          @"はじめてのひとはIDを設定してね！"
 
 @interface ViewController : UIViewController
 

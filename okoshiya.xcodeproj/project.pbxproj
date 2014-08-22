@@ -39,6 +39,7 @@
 		7E5487C1199A03D800B7A2FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5487A3199A03D800B7A2FE /* UIKit.framework */; };
 		7E5487C9199A03D800B7A2FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E5487C7199A03D800B7A2FE /* InfoPlist.strings */; };
 		7E5487CB199A03D800B7A2FE /* okoshiyaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */; };
+		7E7258A219A6D2E30040FF66 /* A5-.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7258A119A6D2E30040FF66 /* A5-.png */; };
 		7EBAC3CE19A4731C00B83BC9 /* setalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBAC3CD19A4731C00B83BC9 /* setalarm.png */; };
 		7EE5A57A19A2DEA600C10910 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57919A2DEA600C10910 /* AVFoundation.framework */; };
 		7EE5A57C19A2DEAE00C10910 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE5A57B19A2DEAE00C10910 /* AudioToolbox.framework */; };
@@ -124,6 +125,7 @@
 		7E5487C6199A03D800B7A2FE /* okoshiyaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "okoshiyaTests-Info.plist"; sourceTree = "<group>"; };
 		7E5487C8199A03D800B7A2FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E5487CA199A03D800B7A2FE /* okoshiyaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = okoshiyaTests.m; sourceTree = "<group>"; };
+		7E7258A119A6D2E30040FF66 /* A5-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A5-.png"; sourceTree = "<group>"; };
 		7EBAC3CD19A4731C00B83BC9 /* setalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setalarm.png; sourceTree = "<group>"; };
 		7EE5A57019A2235A00C10910 /* OnseiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnseiViewController.h; sourceTree = "<group>"; };
 		7EE5A57919A2DEA600C10910 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -335,6 +337,7 @@
 		7EE5A57D19A2DED000C10910 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7E7258A119A6D2E30040FF66 /* A5-.png */,
 				7EBAC3CD19A4731C00B83BC9 /* setalarm.png */,
 				7EE5A57E19A2DED000C10910 /* close.png */,
 				7EE5A57F19A2DED000C10910 /* hukidashi.png */,
@@ -465,6 +468,7 @@
 				7E5487B3199A03D800B7A2FE /* Main.storyboard in Resources */,
 				7EE5A59119A2DED000C10910 /* recordbuttonon.png in Resources */,
 				7EE5A59319A2DED000C10910 /* top.png in Resources */,
+				7E7258A219A6D2E30040FF66 /* A5-.png in Resources */,
 				7EE5A58F19A2DED000C10910 /* me.png in Resources */,
 				7EE5A5BC19A365CB00C10910 /* alarm.mp3 in Resources */,
 			);

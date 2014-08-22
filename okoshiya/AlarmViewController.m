@@ -96,9 +96,9 @@ typedef enum alarmEventType : NSUInteger {
     //スリープ禁止
     [APP_DELEGATE setIdleTimer:YES];
     
-    //アラート表示
-    [DCUtil showAlert:nil message:ALARM_START_MESSAGE
-    cancelButtonTitle:nil otherButtonTitles:@"OK"];
+//    //アラート表示
+//    [DCUtil showAlert:nil message:ALARM_START_MESSAGE
+//    cancelButtonTitle:nil otherButtonTitles:@"OK"];
     
     //タイマー停止
     [self clearAlarmTimer];

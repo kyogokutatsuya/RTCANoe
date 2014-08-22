@@ -43,4 +43,5 @@
 //nextbutton
 -(IBAction)onseitomy:(id)sender;
 
+@property (retain, nonatomic) IBOutlet UIButton *next;
 @end
