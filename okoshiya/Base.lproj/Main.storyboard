@@ -322,6 +322,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KXe-07-Cu0" id="aKu-SZ-sZm">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -352,18 +353,6 @@
                                 </state>
                                 <connections>
                                     <action selector="okosubutton:" destination="yRV-zh-kxC" eventType="touchUpInside" id="mLz-fr-iJ4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOC-Pj-knH">
-                                <rect key="frame" x="237" y="503" width="68" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="戻る">
-                                    <color key="titleColor" red="0.076681840129999998" green="0.31266983700000001" blue="0.1138049069" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="oYi-0V-1uY" kind="modal" id="JO4-J1-JKI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -447,8 +436,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="a2d-hE-oDq"/>
         <segue reference="mfE-Bp-oII"/>
         <segue reference="iLB-fT-Whp"/>
+        <segue reference="a2d-hE-oDq"/>
     </inferredMetricsTieBreakers>
 </document>
